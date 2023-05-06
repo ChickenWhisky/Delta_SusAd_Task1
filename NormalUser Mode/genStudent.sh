@@ -96,7 +96,7 @@ then
 			    sudo useradd -m -d /home/Agate/$room/Student2 $name
 		    	sudo touch /home/Agate/$room/Student2/userDetails.txt
 		    	sudo touch /home/Agate/$room/Student2/fees.txt
-				sudo echo "$$name $rollno $hostel $room $mess $messpref>>/home/Agate/$room/Student2/userDetails.txt
+				sudo echo "$$name $rollno $hostel $room $mess $messpref>>/home/Agate/$room/Student2/userDetails.txt"
 				room_occ_number[3]=0
 				room_number[3]= $($room_number[3]+1)
 		fi
