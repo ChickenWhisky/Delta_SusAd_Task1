@@ -25,13 +25,13 @@ then
 		then
 			if [[ room_occ_number[0]=0 ]] 
 				then
-		    	sudo useradd -m ${file}/GarnetA/${room_number[0]}/Student1 $1
+		    	sudo useradd -m ${file}/GarnetA/${room_number[0]}/Student1 "$1"
 				sudo touch ${file}/GarnetA/${room_number[0]}/Student1/userDetails.txt
 		    	sudo touch ${file}/GarnetA/${room_number[0]}/Student1/fees.txt				
 				sudo echo "$1 $2 $3 $4 $5 $6">>${file}/GarnetA/${room_number[0]}/Student1/userDetails.txt
 				room_occ_number[0]=1
 			else
-			    sudo useradd -m ${file}/GarnetA/${room_number[0]}/Student2 $1
+			    sudo useradd -m ${file}/GarnetA/${room_number[0]}/Student2 "$1"
 		    	sudo touch ${file}/GarnetA/${room_number[0]}/Student2/userDetails.txt
 		    	sudo touch ${file}/GarnetA/${room_number[0]}/Student2/fees.txt
 				sudo echo "$1 $2 $3 $4 $5 $6">>${file}/GarnetA/${room_number[0]}/Student2/userDetails.txt
@@ -46,13 +46,13 @@ then
 		then
 			if [[ room_occ_number[1]=0 ]] 
 				then
-			    sudo useradd -m   ${file}/GarnetB/${room_number[1]}/Student1 $1
+			    sudo useradd -m   ${file}/GarnetB/${room_number[1]}/Student1  "$1"
 		    	sudo touch ${file}/GarnetB/${room_number[1]}/Student1/userDetails.txt
 		    	sudo touch ${file}/GarnetB/${room_number[1]}/Student1/fees.txt
 				sudo echo "$1 $2 $3 $4 $5 $6">>${file}/GarnetB/${room_number[1]}/Student1/userDetails.txt
 				room_occ_number[1]=1
 		else
-			    sudo useradd -m   ${file}/GarnetB/${room_number[1]}/Student2 $1
+			    sudo useradd -m   ${file}/GarnetB/${room_number[1]}/Student2 "$1"
 		    	sudo touch ${file}/GarnetB/${room_number[1]}/Student2/userDetails.txt
 		    	sudo touch ${file}/GarnetB/${room_number[1]}/Student2/fees.txt
 				sudo echo "$1 $2 $3 $4 $5 $6">>${file}/GarnetB/${room_number[1]}/Student2/userDetails.txt
@@ -65,13 +65,13 @@ then
 		then
 			if [[ room_occ_number[2]=0 ]] 
 				then
-			    sudo useradd -m   ${file}/Opal/${room_number[2]}/Student1 $1
+			    sudo useradd -m   ${file}/Opal/${room_number[2]}/Student1 "$1"
 		    	sudo touch ${file}/Opal/${room_number[2]}/Student1/userDetails.txt
 		    	sudo touch ${file}/Opal/${room_number[2]}/Student1/fees.txt
 				sudo echo "$1 $2 $3 $4 $5 $6">>${file}/Opal/${room_number[2]}/Student1/userDetails.txt
 				room_occ_number[2]=1
 		else
-			    sudo useradd -m   ${file}/Opal/${room_number[2]}/Student $1
+			    sudo useradd -m   ${file}/Opal/${room_number[2]}/Student "$1"
 		    	sudo touch ${file}/Opal/${room_number[2]}/Student2/userDetails.txt
 		    	sudo touch ${file}/Opal/${room_number[2]}/Student2/fees.txt
 				sudo echo "$1 $2 $3 $4 $5 $6">>${file}/Opal/${room_number[2]}/Student2/userDetails.txt
@@ -83,13 +83,13 @@ then
 	else
 		if [[ room_occ_number[3]=0 ]] 
 			then
-			    sudo useradd -m   ${file}/Agate/${room_number[3]}/Student1 $1
+			    sudo useradd -m   ${file}/Agate/${room_number[3]}/Student1 "$1"
 		    	sudo touch ${file}/Agate/${room_number[3]}/Student1/userDetails.txt
 		    	sudo touch ${file}/Agate/${room_number[3]}/Student1/fees.txt
 				sudo echo "$1 $2 $3 $4 $5 $6">>${file}/Agate/${room_number[3]}/Student1/userDetails.txt
 				room_occ_number[2]=1
 		else
-			    sudo useradd -m   ${file}/Agate/${room_number[3]}/Student2 $1
+			    sudo useradd -m   ${file}/Agate/${room_number[3]}/Student2 "$1"
 		    	sudo touch ${file}/Agate/${room_number[3]}/Student2/userDetails.txt
 		    	sudo touch ${file}/Agate/${room_number[3]}/Student2/fees.txt
 				sudo echo "$1 $2 $3 $4 $5 $6">>${file}/Agate/${room_number[3]}/Student2/userDetails.txt
