@@ -16,9 +16,11 @@ then
 	room_number=(0 0 0 0)
 	room_occ_number=(0 0 0 0)
 
-	value=$(awk '{print $1" "$2" "$3" "$4" "$5" "$6 }' /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt )
-	for i in $value
+#   value=$(awk '{print $1" "$2" "$3" "$4" "$5" "$6 }' /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt )
+	#!/bin/bash
+	while IFS=: read username fullname usergroups
 	do
+    	useradd -G $usergroups -c "$fullname" $username
 #Checks if the hostel is GarnetA then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
 	if [ "$3" = "GarnetA" ]
@@ -100,5 +102,5 @@ then
 				room_number[3]= $($room_number[3]+1)
 		fi
 	fi	
-	done
+	done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 fi	
