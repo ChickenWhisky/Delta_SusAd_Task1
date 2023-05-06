@@ -24,7 +24,7 @@ then
 
 	if [ "$hostel" = "GarnetA" ]
 		then
-			if [[ room_occ_number[0] -eq 0 ]] 
+			if [ ! -d /home/GarnetA/$room/Student2 ] 
 				then
 		    	sudo useradd -m -d /home/GarnetA/$room/Student1 $name
 				sudo touch /home/GarnetA/$room/Student1/userDetails.txt
@@ -45,7 +45,7 @@ then
 
 	elif [ "$hostel" = "GarnetB" ]
 		then
-			if [[ room_occ_number[1] -eq 0 ]] 
+			if [ ! -d /home/GarnetB/$room/Student2 ] 
 				then
 			    sudo useradd -m -d /home/GarnetB/$room/Student1 $name
 		    	sudo touch /home/GarnetB/$room/Student1/userDetails.txt
@@ -65,7 +65,7 @@ then
 
 	elif [ "$hostel" = "Opal" ]
 		then
-			if [[ room_occ_number[2] -eq 0 ]] 
+			if [ ! -d /home/Opal/$room/Student2 ] 
 				then
 			    sudo useradd -m -d /home/Opal/$room/Student1 $name
 		    	sudo touch /home/Opal/$room/Student1/userDetails.txt
@@ -85,7 +85,7 @@ then
 
 	elif [ "$hostel" = "Agate" ]
 		then
-		if [[ room_occ_number[3] -eq 0 ]] 
+		if [ ! -d /home/Agate/$room/Student2 ] 
 			then
 			    sudo useradd -m -d /home/Agate/$room/Student1 $name
 		    	sudo touch /home/Agate/$room/Student1/userDetails.txt
