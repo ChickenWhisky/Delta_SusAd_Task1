@@ -5,9 +5,9 @@ chmod 700 /home/HAD
 
 #Checks if HAD and hostel directories have been created(if HAD isnt created then the script hasnt generated other directories)
 
-if [[ -d HAD ]];
+if [[ -!d HAD ]];
 then
-	
+	sudo useradd -m ${file}/HAD HAD
 	sudo useradd -m ${file}/GarnetA GarnetA
 	sudo useradd -m ${file}/GarnetB GarnetB
 	sudo useradd -m ${file}/Opal Opal
@@ -21,7 +21,7 @@ then
 	do
 #Checks if the hostel is GarnetA then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
-	if [[ $3 == "GarnetA" ]]
+	if [ $3 == "GarnetA" ]
 		then
 			if [[ room_occ_number[0]=0 ]] 
 				then
@@ -40,7 +40,7 @@ then
 
 #Checks if the hostel is GarnetB then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
-	elif [[ $3 == "GarnetB" ]]
+	elif [ $3 == "GarnetB" ]
 		then
 			if [[ room_occ_number[1]=0 ]] 
 				then
@@ -58,7 +58,7 @@ then
 
 #Checks if the hostel is Opal then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
-	elif [[ $3 == "Opal" ]]
+	elif [ $3 == "Opal" ]
 		then
 			if [[ room_occ_number[2]=0 ]] 
 				then
@@ -77,7 +77,7 @@ then
 #Checks if the hostel is Agate then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
 	else
-		if [[ room_occ_number[3]=0 ]] 
+		if [ room_occ_number[3]=0 ] 
 			then
 			    sudo useradd -m -d ${file}/Agate/${room_number[3]}/
 		    	sudo touch ${file}/Agate/${room_number[3]}/Student1/userDetails.txt
