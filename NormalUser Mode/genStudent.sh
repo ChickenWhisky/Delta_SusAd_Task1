@@ -14,12 +14,12 @@ then
 	sudo useradd -m ${file}/Opal Opal
 	sudo useradd -m ${file}/Agate Agate
 	
-
+	room_number=(0 0 0 0)
+	room_occ_number=(0 0 0 0)
 
 	for value=$(awk '{print $1$2}' ${file}/NormalUser\ Mode/genStudentDetails.txt )
 	do
-	room_number=(0 0 0 0);
-	room_occ_number=(0 0 0 0);
+
 	for i in $value
 	do
 #Checks if the hostel is GarnetA then creates a new student user,its home directory,Userdetails.txt &fees.txt file
@@ -40,6 +40,7 @@ then
 				sudo echo "$1 $2 $3 $4 $5 $6">>${file}/GarnetA/${room_number[0]}/Student2/userDetails.txt
 
 				room_occ_number[0]=0
+				room_number[0]=awk [room_number[0]+1]
 		fi
 
 #Checks if the hostel is GarnetB then creates a new student user,its home directory,Userdetails.txt &fees.txt file
@@ -97,8 +98,8 @@ then
 				sudo echo "$1 $2 $3 $4 $5 $6">>${file}/Agate/${room_number[3]}/Student2/userDetails.txt
 				room_occ_number[3]=0
 		fi	
-	fi	
-
+	done
+fi	
 
 	
 	
