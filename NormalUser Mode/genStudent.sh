@@ -16,16 +16,17 @@ then
 
 #   value=$(awk '{print $1" "$2" "$3" "$4" "$5" "$6 }' /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt )
 	#!/bin/bash
-	IFS=" ";set -f
-	while IFS= read name rollno hostel room mess messpref
+	while read -r name rollno hostel room mess messpref
 	do
     	
 #Checks if the hostel is GarnetA then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
 	if [ "$hostel" = "GarnetA" ]
 		then
+			echo $hostel
 			if [ ! -d /home/GarnetA/$room/Student2 ] 
 				then
+				echo "Its working"
 		    	sudo useradd -m -d /home/GarnetA/$room/Student1 $name
 				sudo touch /home/GarnetA/$room/Student1/userDetails.txt
 		    	sudo touch /home/GarnetA/$room/Student1/fees.txt				
@@ -93,9 +94,8 @@ then
 	done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 else
 	
-	IFS=" ";set -f
 
-	while IFS=: read name rollno hostel room mess messpref
+	while read -r name rollno hostel room mess messpref
 	do
     	
 	#Checks if the hostel is GarnetA then creates a new student user,its home directory,Userdetails.txt &fees.txt file
