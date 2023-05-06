@@ -1,16 +1,15 @@
 #!/bin/bash
 
-file="/home/HAD"
-chmod 777 /home/CEO
+file="/home"
+chmod 700 /home/HAD
 
 if [[  $# -eq 0 ]];
 then
-	value=$(awk '{print $1$2}' ${file}/src/User_Accounts.txt )
+	value=$(awk '{print $1$2}' ${file}/$1.txt )
 	for i in $value
 	do
-		sudo useradd -m -d ${file}/${i:7:7}/${i:0:7} ${i:0:7}
-		sudo touch ${file}/${i:7:7}/${i:0:7}/Transaction_History.txt
-		sudo echo "500">${file}/${i:7:7}/${i:0:7}/Current_Balance.txt
+		    sudo useradd -m -d ${file}/${i:7:7}/${i:0:7} ${i:0:7}
+		    sudo touch ${file}/${i:7:7}/${i:0:7}/Transaction_History.txt
 	done
 
 	value=$(awk '{print $2}' ${file}/src/User_Accounts.txt | sort | uniq)
