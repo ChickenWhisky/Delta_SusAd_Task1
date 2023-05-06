@@ -16,7 +16,8 @@ then
 
 #   value=$(awk '{print $1" "$2" "$3" "$4" "$5" "$6 }' /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt )
 	#!/bin/bash
-	while IFS=: read name rollno hostel room mess messpref
+	IFS=" ";set -f
+	while IFS= read name rollno hostel room mess messpref
 	do
     	
 #Checks if the hostel is GarnetA then creates a new student user,its home directory,Userdetails.txt &fees.txt file
@@ -91,6 +92,9 @@ then
 	fi	
 	done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 else
+	
+	IFS=" ";set -f
+
 	while IFS=: read name rollno hostel room mess messpref
 	do
     	
