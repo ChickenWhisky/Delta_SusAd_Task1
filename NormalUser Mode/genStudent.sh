@@ -16,7 +16,7 @@ then
 	room_number=(0 0 0 0)
 	room_occ_number=(0 0 0 0)
 
-	value=$(awk '{print $1" "$2}' ${file}/NormalUser\ Mode/src/studentDetails.txt )
+	value=$(awk '{print $1" "$2}' ${file}/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt )
 	for i in $value
 	do
 #Checks if the hostel is GarnetA then creates a new student user,its home directory,Userdetails.txt &fees.txt file
