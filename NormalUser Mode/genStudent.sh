@@ -5,7 +5,7 @@ chmod 700 /home/HAD
 
 #Checks if HAD and hostel directories have been created(if HAD isnt created then the script hasnt generated other directories)
 
-if [ -d HAD ];
+if [ ! -d HAD ];
 then
 	
 	sudo useradd -m ${file}/GarnetA GarnetA
@@ -37,6 +37,7 @@ then
 				sudo echo "$1 $2 $3 $4 $5 $6">>${file}/GarnetA/${room_number[0]}/Student2/userDetails.txt
 
 				room_occ_number[0]=0
+		fi
 
 #Checks if the hostel is GarnetB then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
@@ -54,7 +55,8 @@ then
 		    	sudo touch ${file}/GarnetB/${room_number[1]}/Student2/userDetails.txt
 		    	sudo touch ${file}/GarnetB/${room_number[1]}/Student2/fees.txt
 				sudo echo "$1 $2 $3 $4 $5 $6">>${file}/GarnetB/${room_number[1]}/Student2/userDetails.txt
-				room_occ_number[1]=0		
+				room_occ_number[1]=0
+		fi	
 
 #Checks if the hostel is Opal then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
@@ -73,6 +75,7 @@ then
 		    	sudo touch ${file}/Opal/${room_number[2]}/Student2/fees.txt
 				sudo echo "$1 $2 $3 $4 $5 $6">>${file}/Opal/${room_number[2]}/Student2/userDetails.txt
 				room_occ_number[2]=0	
+		fi
 
 #Checks if the hostel is Agate then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
@@ -89,8 +92,9 @@ then
 		    	sudo touch ${file}/Agate/${room_number[3]}/Student2/userDetails.txt
 		    	sudo touch ${file}/Agate/${room_number[3]}/Student2/fees.txt
 				sudo echo "$1 $2 $3 $4 $5 $6">>${file}/Agate/${room_number[3]}/Student2/userDetails.txt
-				room_occ_number[3]=0	
-			
+				room_occ_number[3]=0
+		fi	
+	fir	
 
 done
 done
