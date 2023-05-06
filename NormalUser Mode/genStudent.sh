@@ -5,7 +5,7 @@ file="/home"
 
 #Checks if HAD and hostel directories have been created(if HAD isnt created then the script hasnt generated other directories)
 
-if [ !   GarnetA ];
+if [ ! -d GarnetA ];
 then
 	
 	sudo useradd -m ${file}/GarnetA GarnetA
