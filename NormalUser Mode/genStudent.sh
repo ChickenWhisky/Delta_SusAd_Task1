@@ -97,10 +97,9 @@ then
 				sudo echo "$1 $2 $3 $4 $5 $6">>${file}/Agate/${room_number[3]}/Student2/userDetails.txt
 				room_occ_number[3]=0
 		fi	
-	fir	
+	fi	
 
-done
-done
+
 	
 	
 #	value=$(awk '{print $2}' ${file}/src/User_Accounts.txt | sort | uniq)
