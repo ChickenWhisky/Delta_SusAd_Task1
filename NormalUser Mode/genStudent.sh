@@ -1,8 +1,7 @@
 #!/bin/bash
 
 file="/home"
-sudo useradd -m -d /home/HAD HAD
-cd /home/HAD
+
 
 #Checks if HAD and hostel directories have been created(if HAD isnt created then the script hasnt generated other directories)
 
@@ -17,7 +16,7 @@ then
 	room_number=(0 0 0 0)
 	room_occ_number=(0 0 0 0)
 
-	value=$(awk '{print $1" "$2}' ${file}/NormalUser\ Mode/genStudentDetails.txt )
+	value=$(awk '{print $1" "$2}' ${file}/NormalUser\ Mode/src/genStudentDetails.txt )
 	for i in $value
 	do
 #Checks if the hostel is GarnetA then creates a new student user,its home directory,Userdetails.txt &fees.txt file
