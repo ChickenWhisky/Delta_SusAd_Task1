@@ -17,9 +17,7 @@ then
 	room_number=(0 0 0 0)
 	room_occ_number=(0 0 0 0)
 
-	for value=$(awk '{print $1$2}' ${file}/NormalUser\ Mode/genStudentDetails.txt )
-	do
-
+	value=$(awk '{print $1" "$2}' ${file}/NormalUser\ Mode/genStudentDetails.txt )
 	for i in $value
 	do
 #Checks if the hostel is GarnetA then creates a new student user,its home directory,Userdetails.txt &fees.txt file
@@ -29,8 +27,10 @@ then
 			if [[ room_occ_number[0]=0 ]] 
 				then
 			    sudo useradd -m -d ${file}/GarnetA/${room_number[0]}/
-		    	sudo touch ${file}/GarnetA/${room_number[0]}/Student1/userDetails.txt
+		    	sudo useradd -m -d ${file}/GarnetA/${room_number[0]}/Student1
+				sudo touch ${file}/GarnetA/${room_number[0]}/Student1/userDetails.txt
 		    	sudo touch ${file}/GarnetA/${room_number[0]}/Student1/fees.txt
+				
 				sudo echo "$1 $2 $3 $4 $5 $6">>${file}/GarnetA/${room_number[0]}/Student1/userDetails.txt
 				room_occ_number[0]=1
 			else
@@ -97,7 +97,8 @@ then
 		    	sudo touch ${file}/Agate/${room_number[3]}/Student2/fees.txt
 				sudo echo "$1 $2 $3 $4 $5 $6">>${file}/Agate/${room_number[3]}/Student2/userDetails.txt
 				room_occ_number[3]=0
-		fi	
+		fi
+	fi	
 	done
 fi	
 
