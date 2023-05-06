@@ -83,6 +83,7 @@ then
 #Checks if the hostel is Agate then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
 	elif [[ $3 == "Agate" ]]
+		then
 		if [[ room_occ_number[3]=0 ]] 
 			then
 			    sudo useradd -m ${file}/Agate/${room_number[3]}/Student1 $1
