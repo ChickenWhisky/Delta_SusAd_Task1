@@ -8,10 +8,10 @@ file="/home"
 if [ ! -d GarnetA ];
 then
 	
-	sudo useradd -m ${file}/GarnetA GarnetA
-	sudo useradd -m ${file}/GarnetB GarnetB
-	sudo useradd -m ${file}/Opal Opal
-	sudo useradd -m ${file}/Agate Agate
+	sudo useradd -m -d ${file}/GarnetA GarnetA
+	sudo useradd -m -d ${file}/GarnetB GarnetB
+	sudo useradd -m -d ${file}/Opal Opal
+	sudo useradd -m -d ${file}/Agate Agate
 	
 	room_number=(0 0 0 0)
 	room_occ_number=(0 0 0 0)
