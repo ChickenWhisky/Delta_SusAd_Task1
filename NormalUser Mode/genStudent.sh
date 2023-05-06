@@ -21,7 +21,7 @@ then
 	do
 #Checks if the hostel is GarnetA then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
-	if [[ $3 == "GarnetA" ]]
+	if [ "$3" = "GarnetA" ]
 		then
 			if [[ room_occ_number[0]=0 ]] 
 				then
@@ -42,7 +42,7 @@ then
 
 #Checks if the hostel is GarnetB then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
-	elif [[ $3 == "GarnetB" ]]
+	elif [ "$3" = "GarnetB" ]
 		then
 			if [[ room_occ_number[1]=0 ]] 
 				then
@@ -62,7 +62,7 @@ then
 
 #Checks if the hostel is Opal then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
-	elif [[ $3 == "Opal" ]]
+	elif [ "$3" = "Opal" ]
 		then
 			if [[ room_occ_number[2]=0 ]] 
 				then
@@ -82,7 +82,7 @@ then
 
 #Checks if the hostel is Agate then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
-	elif [[ $3 == "Agate" ]]
+	elif [ "$3" = "Agate" ]
 		then
 		if [[ room_occ_number[3]=0 ]] 
 			then
