@@ -5,17 +5,7 @@ chmod 700 /home/HAD
 
 if [[ -d HAD ]];
 then
-	
-	sudo useradd -m ${file}/GarnetA GarnetA;
-	sudo useradd -m ${file}/GarnetB GarnetB;
-	sudo useradd -m ${file}/Opal Opal;
-	sudo useradd -m ${file}/Agate Agate;
-
-	for 
-
-	value=$(awk '{print $1$2}' ${file}/NormalUser\ Mode/genStudentDetails.txt )
-	room_number=(0 0 0 0);
-	room_occ_number=0;
+	value=$(awk '{print $1$2}' ${file}/$1.txt )
 	for i in $value
 	do
 		    sudo useradd -m -d ${file}/${i:7:7}/${i:0:7} ${i:0:7}
