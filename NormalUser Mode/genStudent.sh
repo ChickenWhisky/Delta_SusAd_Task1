@@ -59,8 +59,8 @@ then
 		sudo touch /home/$hostel/$room/$name/userDetails.txt
     	sudo touch /home/$hostel/$room/$name/fees.txt
 		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
-		sudo echo "name rollno hostel room mess messpref" >> /home/$hostel/$room/$name/userDetails.txt			
-		sudo echo $name" "$rollno" "$hostel" "$room" "$mess" "$messpref >> /home/$hostel/$room/$name/userDetails.txt	
+		echo "name rollno hostel room mess messpref" >> /home/$hostel/$room/$name/userDetails.txt			
+		echo $name" "$rollno" "$hostel" "$room" "$mess" "$messpref >> /home/$hostel/$room/$name/userDetails.txt	
 
 #Checks if the hostel is GarnetB then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
