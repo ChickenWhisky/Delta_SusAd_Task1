@@ -16,5 +16,5 @@ sign in to User HAD
 
 git clone https://github.com/ChickenWhisky/Delta_SusAd_Task1.git
 mv DeltaTask1_SysAd/init.sh .
-chmod +x init.sh
-./init.sh
+
+im not really done so i cant make a readme lmao
