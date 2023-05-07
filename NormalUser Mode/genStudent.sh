@@ -6,29 +6,29 @@
 getDepartment() {
 	local dep=$(cut --characters=2-3 <<< $rollno)
 	case $dep in
-		06) echo "CSE";;
-		02) echo "CHE";;
-		03) echo "CIV";;
-		07) echo "EEE";;
-		08) echo "ECE";;
-		10) echo "ICE";;
-		11) echo "MEC";;
-		12) echo "MME";;
-		14) echo "PRO";;
-		01) echo "ARC";;
+		06) department="CSE";;
+		02) department="CHE";;
+		03) department="CIV";;
+		07) department="EEE";;
+		08) department="ECE";;
+		10) department="ICE";;
+		11) department="MEC";;
+		12) department="MME";;
+		14) department="PRO";;
+		01) department="ARC";;
 		*) echo "InvalidDept"
 	esac
 
 }
 getYear() {
-	local year=$(cut --characters=5-6 <<< $rollno)
+	local Year=$(cut --characters=5-6 <<< $rollno)
 	local currentyear=$(date +%y)
-	echo $(($currentyear-$year+1))
+	year= $(($currentyear-$Year+1))
 }
 addusers(){
  	sudo useradd -m -d /home/$hostel/$room/$name $name
-   	local department= $(getDepartment)
-	local year= $(echo getYear)
+   	getDepartment
+	getYear
 	echo $year $department 
 	sudo touch /home/$hostel/$room/$name/userDetails.txt
    	sudo touch /home/$hostel/$room/$name/fees.txt		
