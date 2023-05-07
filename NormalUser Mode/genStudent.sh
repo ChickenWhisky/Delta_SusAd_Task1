@@ -26,17 +26,14 @@ getYear() {
 	echo $(($currentyear-$year+1))
 }
 addusers(){
-	echo $hostel
-	echo "Its working"
  	sudo useradd -m -d /home/$hostel/$room/$name $name
    	department= $(echo "getDepartment $rollno")
 	echo $department
-	year= $(echo "getYear $rollno")
-	month= $(date +%m)
+	year= $(echo "getYear $rollno") 
 	sudo touch /home/$hostel/$room/$name/userDetails.txt
    	sudo touch /home/$hostel/$room/$name/fees.txt		
 	echo 'name rollno hostel year room mess allocated_mess month mess_preference' | sudo tee -a /home/$hostel/$room/$name/userDetails.txt		
-	echo $name" "$rollno" "$hostel" "$year" "$room" "$mess" - "$month" "$messpref | sudo tee -a /home/$hostel/$room/$name/userDetails.txt			
+	echo $name" "$rollno" "$hostel" "$year" "$room" "$mess" - "$(date +%m)" "$messpref | sudo tee -a /home/$hostel/$room/$name/userDetails.txt			
 }
 
 
