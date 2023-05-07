@@ -29,7 +29,6 @@ addusers(){
  	sudo useradd -m -d /home/$hostel/$room/$name $name
    	getDepartment
 	getYear
-	echo $year $department 
 	sudo touch /home/$hostel/$room/$name/userDetails.txt
    	sudo touch /home/$hostel/$room/$name/fees.txt		
 	echo 'name rollno department hostel year room mess allocated_mess month mess_preference' | sudo tee -a /home/$hostel/$room/$name/userDetails.txt 2>/dev/null
@@ -42,6 +41,7 @@ addhostels(){
 	for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'
 	do 
 	sudo useradd -m -d  /home/$i $i
+	sudo chmod 777 /home/$i
 	sudo touch /home/$i/announcments.txt
 	sudo touch /home/$i/feeDefaulters.txt
 	done

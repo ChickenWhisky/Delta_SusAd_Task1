@@ -25,18 +25,14 @@ done < /home/GarnetA/0/Jennee/user.Details
 #done < userDetails.txt
  
 case $input in
-    1) fee_type_paid="TuitionFee";;
-    2) fee_type_paid="HostelRent";;
-    3) fee_type_paid="ServiceCharge";;
-    4) fee_type_paid="MessFee";;
+    1) fee_type_paid="TuitionFee";amountPaid=50 ;;
+    2) fee_type_paid="HostelRent";amountPaid=20 ;;
+    3) fee_type_paid="ServiceCharge";amountPaid=10 ;;
+    4) fee_type_paid="MessFee";amountPaid=20 ;;
     esac
 
 # /home/Delta_SusAd_Task1/NormalUser\ Mode/src/feeBreakup.txt 
-while read line;do
-    if [ "$(awk '{print $1}')" = "$fee_type_paid" ];then
-        amountPaid=$(echo "$line" | awk '{print $2}')   
-    fi
-done </home/Delta_SusAd_Task1/NormalUser\ Mode/src/feeBreakup.txt
+
 current_value=$(head -n 1 "/home/$hostel/$room/$name/fees.txt" | sed 's/cumulativeAmountPaid=//')
 
 new_value=$(($current_value+$increment))
