@@ -6,6 +6,7 @@ sudo rm -r /home/Agate
 sudo rm -r /home/Opal
 sudo rm -r /home/GarnetA
 sudo rm -r /home/GarnetB
+sudo rm -r /home/HAD
 
 sudo userdel Agate
 sudo userdel Opal
