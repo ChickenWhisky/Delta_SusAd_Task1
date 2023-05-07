@@ -1,50 +1,46 @@
 #!/bin/bash
 
+#For now the directory to which the script is refering to for the location of fees.txt
+
+
 echo "Which of the following fees has been paid (1/2/3/4)  :"
 echo "1)Tuition Fee"
 echo "2)Hostel Rent"
 echo "3)Service Charge"
 echo "4)Mess Fee"
 read input
+
+#Some code to find the name and hostel of the student inorder to know which student is using the script 
+#is a sample student just for the sake of testing but CHANGE IT TO JUST USERDETAILS.TXT LATER
+while read line; do
+    if [ "$(awk '{print $1}')" = "name" ]
+    then 
+        continue
+    else
+        name=$(echo "$line" | awk '{print $1}')
+        hostel=$(echo "$line" | awk '{print $3}')
+        room=$(echo "$line" | awk '{print $5}')
+    fi
+done < /home/GarnetA/0/Jennee/user.Details
+#done < userDetails.txt
  
 case $input in
     1) fee_type_paid="TuitionFee";;
     2) fee_type_paid="HostelRent";;
     3) fee_type_paid="ServiceCharge";;
     4) fee_type_paid="MessFee";;
+    esac
 
-# An Array created to store the Feetype and its respective percentage
-readarray -t percentages < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/feeBreakup.txt
+# /home/Delta_SusAd_Task1/NormalUser\ Mode/src/feeBreakup.txt 
+while read line;do
+    if [ "$(awk '{print $1}')" = "$fee_type_paid" ];then
+        amountPaid=$(echo "$line" | awk '{print $2}')   
+    fi
+done </home/Delta_SusAd_Task1/NormalUser\ Mode/src/feeBreakup.txt
+current_value=$(head -n 1 "/home/$hostel/$room/$name/fees.txt" | sed 's/cumulativeAmountPaid=//')
 
-# Initialize cumulative fees array
-declare -a fees=(0 0 0)
+new_value=$(($current_value+$increment))
 
-# Read fees.txt and update the cumulative fees
-while read -r line; do
-  # Skip empty lines and comments starting with #
-  if [[ -z "$line" || "$line" =~ ^\#.*$ ]]; then
-    continue
-  fi
-  # Split line by tab character and store values in variables
-  IFS=$'\t' read -r -a values <<< "$line"
-  # Calculate fees for each category and update cumulative fees array
-  for i in "${!values[@]}"; do
-    category_fee=$(echo "${percentages[i]} * ${values[i]}" | bc)
-    fees[i]=$(echo "${fees[i]} + $category_fee" | bc)
-  done
-done < fees.txt
-
-# Print cumulative fees and ask for payment amount
-echo "Cumulative fees:"
-echo "Category 1: ${fees[0]}"
-echo "Category 2: ${fees[1]}"
-echo "Category 3: ${fees[2]}"
-echo -n "Enter payment amount: "
-read payment
-
-# Update fees.txt with cumulative fees and payment transaction
-# Add current transaction to the top of the file
-# Use date and time as transaction ID
-transaction_id=$(date +"%Y%m%d%H%M%S")
-transaction_line="$transaction_id"$'\t'"$payment"${fees[*]/%/\\n}
-echo "$transaction_line" | cat - fees.txt > temp && mv temp fees.txt
+# Update the first line of the file with the new value
+sed -i "1s/cumulativeAmountPaid=.*/cumulativeAmountPaidl=$new_value/" "/home/$hostel/$room/$name/fees.txt"
+echo "$fee_type_paid $amountPaid" | sudo tee -a /home/$hostel/$room/$name/fees.txt 	
