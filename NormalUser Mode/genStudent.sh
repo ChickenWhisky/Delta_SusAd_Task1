@@ -36,9 +36,9 @@ addusers(){
 	echo $name" "$rollno" "$hostel" "$year" "$room" "$mess" - "$(date +%m)" "$messpref | sudo tee -a /home/$hostel/$room/$name/userDetails.txt			
 }
 addhostels(){
-	local hostel_names=('GranetA' 'GarnetB' 'Opal' 'Agate')
-	mv src/mess.txt /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
-	for i in "${hostel_names[@]}"
+	
+	sudo mv src/mess.txt /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
+	for i in 'GranetA' 'GarnetB' 'Opal' 'Agate'
 	do 
 	sudo useradd -m -d  /home/$i $i
 	sudo touch /home/$i/announcments.txt
