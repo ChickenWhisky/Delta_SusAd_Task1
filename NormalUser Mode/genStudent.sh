@@ -73,7 +73,7 @@ then
     	sudo touch /home/$hostel/$room/fees.txt
 		sudo chmod	777	/home/$hostel/$room/userDetails.txt
 		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/userDetails.txt	
-		fi	
+		
 
 #Checks if the hostel is Opal then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
@@ -88,7 +88,6 @@ then
     	sudo touch /home/$hostel/$room/fees.txt
 		sudo chmod	777	/home/$hostel/$room/userDetails.txt
 		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/userDetails.txt	
-		fi
 
 #Checks if the hostel is Agate then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
@@ -142,7 +141,7 @@ else
     	sudo touch /home/$hostel/$room/fees.txt
 		sudo chmod	777	/home/$hostel/$room/userDetails.txt
 		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/userDetails.txt	
-		fi	
+		
 
 #Checks if the hostel is Opal then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
@@ -157,8 +156,7 @@ else
     	sudo touch /home/$hostel/$room/fees.txt
 		sudo chmod	777	/home/$hostel/$room/userDetails.txt
 		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/userDetails.txt	
-		fi
-
+	
 #Checks if the hostel is Agate then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
 	elif [ "$hostel" = "Agate" ]
@@ -172,6 +170,6 @@ else
     	sudo touch /home/$hostel/$room/fees.txt
 		sudo chmod	777	/home/$hostel/$room/userDetails.txt
 		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/userDetails.txt	
-	fi	
+	fi
 	done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 fi	
