@@ -49,30 +49,15 @@ then
 
 	if [ "$hostel" = "GarnetA" ]
 		then
-			echo $hostel
-			if [[ -d /home/$hostel/$room/Student1 ]]
-			    then
-				sudo useradd -m -d /home/$hostel/$room/Student2 $name
-				department= $(echo "getDepartment $rollno")
-				year= $(echo "getYear $rollno")
-		    	sudo touch /home/$hostel/$room/Student2/userDetails.txt
-		    	sudo touch /home/$hostel/$room/Student2/fees.txt
-				sudo chmod	777 /home/$hostel/$room/Student2/userDetails.txt
-				sudo echo "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/Student2/userDetails.txt	
-			
-
-			elif [[ ! -d /home/$hostel/$room/Student1 ]] 
-				then
-				echo "Its working"
-		    	sudo useradd -m -d /home/$hostel/$room/Student1 $name
-				department= $(echo "getDepartment $rollno")
-				year= $(echo "getYear $rollno")
-				sudo touch /home/$hostel/$room/Student1/userDetails.txt
-		    	sudo touch /home/$hostel/$room/Student1/fees.txt
-				sudo chmod	777	/home/$hostel/$room/Student1/userDetails.txt
-				sudo echo "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/Student1/userDetails.txt	
-
-		fi
+		echo $hostel
+		echo "Its working"
+    	sudo useradd -m -d /home/$hostel/$room/ $name
+     	department= $(echo "getDepartment $rollno")
+		year= $(echo "getYear $rollno")
+		sudo touch /home/$hostel/$room//userDetails.txt
+    	sudo touch /home/$hostel/$room//fees.txt
+		sudo chmod	777	/home/$hostel/$room//userDetails.txt
+		sudo echo "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room//userDetails.txt	
 
 #Checks if the hostel is GarnetB then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
