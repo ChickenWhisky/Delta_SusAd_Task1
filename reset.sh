@@ -1,4 +1,5 @@
 #!/bin/sh
+#A script to automate the deletion process for the sake of testing
 
 sudo rm -r /home/Delta_SusAd_Task1
 sudo rm -r /home/Agate
