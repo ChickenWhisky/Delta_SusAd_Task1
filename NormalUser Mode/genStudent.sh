@@ -56,7 +56,7 @@ then
 	
 	while read -r name rollno hostel room mess messpref
 	do
-    	
+    echo fuckthisBS
 #Checks if the hostel is GarnetA then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
 	if [ "$hostel" = "GarnetA" ]
