@@ -23,7 +23,7 @@ getDepartment() {
 getYear() {
 	local Year=$(cut --characters=5-6 <<< $rollno)
 	local currentyear=$(date +%y)
-	year= $currentyear-$Year+1 | bc
+	year=$(($currentyear-$Year+1))
 }
 addusers(){
  	sudo useradd -m -d /home/$hostel/$room/$name $name
@@ -32,8 +32,8 @@ addusers(){
 	echo $year $department 
 	sudo touch /home/$hostel/$room/$name/userDetails.txt
    	sudo touch /home/$hostel/$room/$name/fees.txt		
-	echo 'name rollno hostel year room mess allocated_mess month mess_preference' | sudo tee -a /home/$hostel/$room/$name/userDetails.txt 2>/dev/null
-	echo $name" "$rollno" "$hostel" "$year" "$room" "$mess" - "$(date +%m)" "$messpref | sudo tee -a /home/$hostel/$room/$name/userDetails.txt 2>/dev/null			
+	echo 'name rollno department hostel year room mess allocated_mess month mess_preference' | sudo tee -a /home/$hostel/$room/$name/userDetails.txt 2>/dev/null
+	echo $name" "$rollno" "$department" "$hostel" "$year" "$room" "$mess" - "$(date +%m)" "$messpref | sudo tee -a /home/$hostel/$room/$name/userDetails.txt 2>/dev/null			
 	echo 'cumulativeAmountPaid= 0' | sudo tee -a /home/$hostel/$room/$name/fees.txt 2>/dev/null	
 }
 addhostels(){
