@@ -5,7 +5,7 @@ file="/home"
 #Functions
 
 getDepartment() {
-	local dep=$(cut -c2-3 <<< rollno)
+	local dep=$(cut -c2-3 <<< $rollno)
 	case dep in
 		06) echo "CSE";;
 		07) echo "CSE";;
@@ -21,7 +21,7 @@ getDepartment() {
 
 }
 getYear() {
-	local year=$(cut -c5-6 <<< rollno)
+	local year=$(cut -c5-6 <<< $rollno)
 	case year in
 		22) echo 1;;
 		21) echo 2;;
@@ -59,7 +59,6 @@ then
 				year= $(getYear())
 				sudo touch /home/$hostel/$room/Student1/userDetails.txt
 		    	sudo touch /home/$hostel/$room/Student1/fees.txt
-				sduo chmod	711	/home/$hostel/$room/Student1/userDetails.txt
 				sduo chmod	711	/home/$hostel/$room/Student1/userDetails.txt
 				sudo echo "$name $rollno $year $department $hotel $room $mess $messpref">>/home/$hostel/$room/Student1/userDetails.txt
 			else
