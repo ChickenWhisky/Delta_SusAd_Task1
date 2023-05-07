@@ -55,8 +55,8 @@ then
 				then
 				echo "Its working"
 		    	sudo useradd -m -d /home/$hostel/$room/Student1 $name
-				department= $(getDepartment())
-				year= $(getYear())
+				department= $(getDepartment $rollno)
+				year= $(getYear $rollno)
 				sudo touch /home/$hostel/$room/Student1/userDetails.txt
 		    	sudo touch /home/$hostel/$room/Student1/fees.txt
 				sduo chmod	711	/home/$hostel/$room/Student1/userDetails.txt
@@ -96,7 +96,7 @@ then
 			if [ ! -d /home/$hostel/$room/Student1 ] 
 				then
 			    sudo useradd -m -d /home/$hostel/$room/Student1 $name
-				department= $(getDepartment())
+				department= $(getDepartment $rollno)
 		    	sudo touch /home/$hostel/$room/Student1/userDetails.txt
 		    	sudo touch /home/$hostel/$room/Student1/fees.txt
 				sudo echo "$name $rollno $hostel $room $mess $messpref">>/home/$hostel/$room/Student1/userDetails.txt
@@ -115,7 +115,7 @@ then
 		if [ ! -d /home/$hostel/$room/Student1 ] 
 			then
 			    sudo useradd -m -d /home/$hostel/$room/Student1 $name
-				department= $(getDepartment())
+				department= $(getDepartment $rollno)
 		    	sudo touch /home/$hostel/$room/Student1/userDetails.txt
 		    	sudo touch /home/$hostel/$room/Student1/fees.txt
 				sudo echo "$name $rollno $hostel $room $mess $messpref">>/home/$hostel/$room/Student1/userDetails.txt
