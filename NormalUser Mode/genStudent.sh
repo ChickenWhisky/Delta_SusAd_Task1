@@ -46,7 +46,7 @@ addhostels(){
 	done
 
 }
-
+echo yourmom
 
 #Checks if hostel directories have been created
 
