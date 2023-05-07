@@ -8,14 +8,15 @@ getDepartment() {
 	local dep=$(cut --characters=2-3 <<< $rollno)
 	case $dep in
 		06) echo "CSE";;
-		07) echo "CSE";;
-		08) echo "CSE";;
-		09) echo "CSE";;
-		10) echo "CSE";;
-		11) echo "CSE";;
-		12) echo "CSE";;
-		14) echo "CSE";;
-		01) echo "CSE";;
+		02) echo "CHE";;
+		03) echo "CIV";;
+		07) echo "EEE";;
+		08) echo "ECE";;
+		10) echo "ICE";;
+		11) echo "MEC";;
+		12) echo "MME";;
+		14) echo "PRO";;
+		01) echo "ARC";;
 		*) echo "InvalidDept"
 	esac
 
@@ -55,17 +56,20 @@ then
 				then
 				echo "Its working"
 		    	sudo useradd -m -d /home/$hostel/$room/Student1 $name
-				department= $(getDepartment $rollno)
-				year= $(getYear $rollno)
+				department= getDepartment $rollno
+				year= getYear $rollno
 				sudo touch /home/$hostel/$room/Student1/userDetails.txt
 		    	sudo touch /home/$hostel/$room/Student1/fees.txt
-				sduo chmod	711	/home/$hostel/$room/Student1/userDetails.txt
+				sudo chmod	711	/home/$hostel/$room/Student1/userDetails.txt
 				sudo echo "$name $rollno $year $department $hotel $room $mess $messpref">>/home/$hostel/$room/Student1/userDetails.txt
 			else
 			    sudo useradd -m -d /home/$hostel/$room/Student2 $name
-				department= $(getDepartment())
+				department= getDepartment
+				year= getYear $rollno
 		    	sudo touch /home/$hostel/$room/Student2/userDetails.txt
 		    	sudo touch /home/$hostel/$room/Student2/fees.txt
+				sudo chmod	711	/home/$hostel/$room/Student1/userDetails.txt
+
 				sudo echo "$name $rollno $hostel $room $mess $messpref">>/home/$hostel/$room/Student2/userDetails.txt
 
 		fi
