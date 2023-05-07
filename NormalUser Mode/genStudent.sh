@@ -49,7 +49,7 @@ addhostels(){
 
 #Checks if hostel directories have been created
 
-if [ ! -d /home/GarnetA ];
+if [ ! -d /home/GarnetA ]
 then
 	
 	addhostels
