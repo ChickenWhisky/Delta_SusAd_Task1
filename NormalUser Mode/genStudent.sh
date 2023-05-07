@@ -37,7 +37,7 @@ addusers(){
 }
 addhostels(){
 	
-	sudo mv src/mess.txt /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
+	sudo mv src/mess.txt /home/Delta_SusAd_Task1/NormalUser\ Mode/src
 	for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'
 	do 
 	sudo useradd -m -d  /home/$i $i
