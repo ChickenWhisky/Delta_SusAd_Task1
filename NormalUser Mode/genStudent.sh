@@ -51,7 +51,7 @@ then
 		then
 		echo $hostel
 		echo "Its working"
-    	sudo useradd -m -d /home/$hostel/$room/$name
+    	sudo useradd -m -d /home/$hostel/$room/$name $name
      	department= $(echo "getDepartment $rollno")
 		year= $(echo "getYear $rollno")
 		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
@@ -66,7 +66,7 @@ then
 		then
 		echo $hostel
 		echo "Its working"
-    	sudo useradd -m -d /home/$hostel/$room/$name
+    	sudo useradd -m -d /home/$hostel/$room/$name $name
      	department= $(echo "getDepartment $rollno")
 		year= $(echo "getYear $rollno")
 		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
@@ -82,7 +82,7 @@ then
 		then
 		echo $hostel
 		echo "Its working"
-    	sudo useradd -m -d /home/$hostel/$room/$name
+    	sudo useradd -m -d /home/$hostel/$room/$name $name
      	department= $(echo "getDepartment $rollno")
 		year= $(echo "getYear $rollno")
 		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
@@ -97,7 +97,7 @@ then
 		then
 		echo $hostel
 		echo "Its working"
-    	sudo useradd -m -d /home/$hostel/$room/$name
+    	sudo useradd -m -d /home/$hostel/$room/$name $name
      	department= $(echo "getDepartment $rollno")
 		year= $(echo "getYear $rollno")
 		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
@@ -123,7 +123,7 @@ else
 		then
 		echo $hostel
 		echo "Its working"
-    	sudo useradd -m -d /home/$hostel/$room/$name
+    	sudo useradd -m -d /home/$hostel/$room/$name $name
      	department= $(echo "getDepartment $rollno")
 		year= $(echo "getYear $rollno")
 		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
@@ -138,7 +138,7 @@ else
 		then
 		echo $hostel
 		echo "Its working"
-    	sudo useradd -m -d /home/$hostel/$room/$name
+    	sudo useradd -m -d /home/$hostel/$room/$name $name
      	department= $(echo "getDepartment $rollno")
 		year= $(echo "getYear $rollno")
 		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
@@ -154,7 +154,7 @@ else
 		then
 		echo $hostel
 		echo "Its working"
-    	sudo useradd -m -d /home/$hostel/$room/$name
+    	sudo useradd -m -d /home/$hostel/$room/$name $name
      	department= $(echo "getDepartment $rollno")
 		year= $(echo "getYear $rollno")
 		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
@@ -169,7 +169,7 @@ else
 		then
 		echo $hostel
 		echo "Its working"
-    	sudo useradd -m -d /home/$hostel/$room/$name
+    	sudo useradd -m -d /home/$hostel/$room/$name $name
      	department= $(echo "getDepartment $rollno")
 		year= $(echo "getYear $rollno")
 		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
