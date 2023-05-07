@@ -27,8 +27,8 @@ getYear() {
 }
 addusers(){
  	sudo useradd -m -d /home/$hostel/$room/$name $name
-   	local department= getDepartment
-	local year= getYear
+   	local department= $(getDepartment)
+	local year= $(echo getYear)
 	echo $year $department 
 	sudo touch /home/$hostel/$room/$name/userDetails.txt
    	sudo touch /home/$hostel/$room/$name/fees.txt		
