@@ -61,6 +61,7 @@ then
 
 	if [ "$hostel" = "GarnetA" ]
 		then
+		echo helloo
 		addusers
 
 #Checks if the hostel is GarnetB then creates a new student user,its home directory,Userdetails.txt &fees.txt file
