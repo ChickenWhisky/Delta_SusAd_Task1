@@ -56,16 +56,16 @@ then
 				then
 				echo "Its working"
 		    	sudo useradd -m -d /home/$hostel/$room/Student1 $name
-				department= $(echo getDepartment $rollno)
-				year= $(echo getYear $rollno)
+				department= $(echo $(getDepartment $rollno))
+				year= $(echo $(getYear $rollno))
 				sudo touch /home/$hostel/$room/Student1/userDetails.txt
 		    	sudo touch /home/$hostel/$room/Student1/fees.txt
 				sudo chmod	u+x	/home/$hostel/$room/Student1/userDetails.txt
 				sudo echo "$name $rollno $year $department $hotel $room $mess $messpref">>/home/$hostel/$room/Student1/userDetails.txt
 			else
 			    sudo useradd -m -d /home/$hostel/$room/Student2 $name
-				department= $(echo getDepartment $rollno)
-				year= $(getYear $rollno)
+				department= $(echo $(getDepartment $rollno))
+				year= $(echo $(getYear $rollno))
 		    	sudo touch /home/$hostel/$room/Student2/userDetails.txt
 		    	sudo touch /home/$hostel/$room/Student2/fees.txt
 				sudo chmod	u+x	/home/$hostel/$room/Student1/userDetails.txt
