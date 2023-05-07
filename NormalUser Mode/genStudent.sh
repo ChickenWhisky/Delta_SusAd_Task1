@@ -38,7 +38,7 @@ addusers(){
 addhostels(){
 	
 	sudo mv src/mess.txt /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
-	for i in 'GranetA' 'GarnetB' 'Opal' 'Agate'
+	for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'
 	do 
 	sudo useradd -m -d  /home/$i $i
 	sudo touch /home/$i/announcments.txt
