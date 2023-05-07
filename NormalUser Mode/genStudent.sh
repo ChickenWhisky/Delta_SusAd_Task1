@@ -27,8 +27,8 @@ getYear() {
 }
 addusers(){
  	sudo useradd -m -d /home/$hostel/$room/$name $name
-   	local department= $(echo "getDepartment $rollno")
-	local year= $(echo "getYear $rollno") 
+   	local department= $(getDepartment $rollno)
+	local year= $(getYear $rollno) 
 	sudo touch /home/$hostel/$room/$name/userDetails.txt
    	sudo touch /home/$hostel/$room/$name/fees.txt		
 	echo 'name rollno hostel year room mess allocated_mess month mess_preference' | sudo tee -a /home/$hostel/$room/$name/userDetails.txt 2>/dev/null
@@ -37,7 +37,7 @@ addusers(){
 }
 addhostels(){
 	
-	sudo mv src/mess.txt /home/HAD
+	sudo mv src/mess.txt /home/HAD/mess.text
 	for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'
 	do 
 	sudo useradd -m -d  /home/$i $i
@@ -51,7 +51,7 @@ addhostels(){
 
 if [ ! -d /home/GarnetA ]
 then
-	
+
 	addhostels
 	
 	while read -r name rollno hostel room mess messpref
