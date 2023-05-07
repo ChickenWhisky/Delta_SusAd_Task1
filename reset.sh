@@ -10,3 +10,12 @@ sudo userdel Agate
 sudo userdel Opal
 sudo userdel GarnetA
 sudo userdel GarnetB
+
+while read -r name 
+do
+    if [ $name != "Name"  ]
+    then
+        sudo userdel $name
+    fi
+
+done < /home/thomas/Desktop/Sysad/Task1/NormalUser\ Mode/src/studentDetails.txt
