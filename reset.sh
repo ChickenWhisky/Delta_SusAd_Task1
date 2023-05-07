@@ -11,14 +11,8 @@ sudo userdel Opal
 sudo userdel GarnetA
 sudo userdel GarnetB
 
-while read name 
+while read name rollno hostel room mess messpref
 do
-    if [ $name = "Name" ]
-    then
-        echo "Name is just a header"
-    else
-        sudo userdel $name
-
-    fi
+    sudo userdel $name
 
 done < /home/thomas/Desktop/Sysad/Task1/NormalUser\ Mode/src/studentDetails.txt
