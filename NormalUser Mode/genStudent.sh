@@ -61,7 +61,8 @@ then
 		    	sudo touch /home/$hostel/$room/Student2/userDetails.txt
 		    	sudo touch /home/$hostel/$room/Student2/fees.txt
 				sudo chmod	u+x	/home/$hostel/$room/Student1/userDetails.txt
-				sudo cat > /home/$hostel/$room/Student2/userDetails.txt ;$name $rollno $hostel $room $mess $messpref		fi
+				sudo echo "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/Student1/userDetails.txt	
+			
 
 			elif [[ ! -d /home/$hostel/$room/Student1 ]] 
 				then
@@ -72,7 +73,7 @@ then
 				sudo touch /home/$hostel/$room/Student1/userDetails.txt
 		    	sudo touch /home/$hostel/$room/Student1/fees.txt
 				sudo chmod	u+x	/home/$hostel/$room/Student1/userDetails.txt
-				sudo cat > /home/$hostel/$room/Student1/userDetails.txt ;$name $rollno $hostel $room $mess $messpref		fi
+				sudo echo "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/Student1/userDetails.txt	
 
 		fi
 
