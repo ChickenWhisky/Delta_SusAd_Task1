@@ -23,7 +23,7 @@ getDepartment() {
 getYear() {
 	local Year=$(cut --characters=5-6 <<< $rollno)
 	local currentyear=$(date +%y)
-	year= $(($currentyear-$Year+1))
+	year= $currentyear-$Year+1 | bc
 }
 addusers(){
  	sudo useradd -m -d /home/$hostel/$room/$name $name
