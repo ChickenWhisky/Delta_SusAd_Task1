@@ -13,7 +13,7 @@ sudo userdel GarnetB
 
 while read -r name 
 do
-    if [ $name != "Name"  ]
+    if [ $name != "Name" ]
     then
         sudo userdel $name
     fi
