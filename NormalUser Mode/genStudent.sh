@@ -62,7 +62,7 @@ then
 		    	sudo touch /home/$hostel/$room/Student1/fees.txt
 				sudo chmod	u+x	/home/$hostel/$room/Student1/userDetails.txt
 				sudo echo "$name $rollno $year $department $hotel $room $mess $messpref">>/home/$hostel/$room/Student1/userDetails.txt
-			elif[ ! -d /home/$hostel/$room/Student2 ]
+			elif [ ! -d /home/$hostel/$room/Student2 ]
 			    then
 				sudo useradd -m -d /home/$hostel/$room/Student2 $name
 				department= $(echo "getDepartment $rollno")
