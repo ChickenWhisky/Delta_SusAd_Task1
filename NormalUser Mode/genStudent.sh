@@ -35,6 +35,17 @@ addusers(){
 	echo 'name rollno hostel year room mess allocated_mess month mess_preference' | sudo tee -a /home/$hostel/$room/$name/userDetails.txt		
 	echo $name" "$rollno" "$hostel" "$year" "$room" "$mess" - "$(date +%m)" "$messpref | sudo tee -a /home/$hostel/$room/$name/userDetails.txt			
 }
+addhostels(){
+	local hostel_names=('GranetA' 'GarnetB' 'Opal' 'Agate')
+	mv src/mess.txt /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
+	for i in {hostel_name[@]}
+	do 
+	sudo useradd -m -d  /home/$i $i
+	sudo touch /home/$i/announcments.txt
+	sudo touch /home/$i/feeDefaulters.txt
+	done
+
+}
 
 
 #Checks if hostel directories have been created
@@ -42,10 +53,7 @@ addusers(){
 if [ ! -d /home/GarnetA ];
 then
 	
-	sudo useradd -m -d  /home/GarnetA GarnetA
-	sudo useradd -m -d  /home/GarnetB GarnetB
-	sudo useradd -m -d  /home/Opal Opal
-	sudo useradd -m -d  /home/Agate Agate
+	addhostels
 	
 	while read -r name rollno hostel room mess messpref
 	do
