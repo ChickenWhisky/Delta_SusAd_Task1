@@ -27,9 +27,9 @@ getYear() {
 }
 addusers(){
  	sudo useradd -m -d /home/$hostel/$room/$name $name
-   	department= $(echo "getDepartment $rollno")
+   	local department= $(echo "getDepartment $rollno")
 	echo $department
-	year= $(echo "getYear $rollno") 
+	local year= $(echo "getYear $rollno") 
 	sudo touch /home/$hostel/$room/$name/userDetails.txt
    	sudo touch /home/$hostel/$room/$name/fees.txt		
 	echo 'name rollno hostel year room mess allocated_mess month mess_preference' | sudo tee -a /home/$hostel/$room/$name/userDetails.txt		
@@ -46,7 +46,6 @@ addhostels(){
 	done
 
 }
-echo yourmom
 
 #Checks if hostel directories have been created
 
