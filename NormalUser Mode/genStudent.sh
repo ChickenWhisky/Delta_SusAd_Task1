@@ -39,7 +39,7 @@ addusers(){
 
 #Checks if hostel directories have been created
 
-if [ ! -d GarnetA ];
+if [ ! -d /home/GarnetA ];
 then
 	
 	sudo useradd -m -d  /home/GarnetA GarnetA
