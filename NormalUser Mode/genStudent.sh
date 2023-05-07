@@ -5,7 +5,7 @@ file="/home"
 #Functions
 
 getDepartment() {
-	local dep=$(cut -c2-3 <<< $rollno)
+	local dep=$(cut --characters=2-3 <<< $rollno)
 	case $dep in
 		06) echo "CSE";;
 		07) echo "CSE";;
@@ -21,7 +21,7 @@ getDepartment() {
 
 }
 getYear() {
-	local year=$(cut -c5-6 <<< $rollno)
+	local year=$(cut --characters=5-6 <<< $rollno)
 	case $year in
 		22) echo 1;;
 		21) echo 2;;
