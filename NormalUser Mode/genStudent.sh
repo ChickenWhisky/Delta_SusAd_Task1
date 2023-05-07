@@ -58,7 +58,7 @@ then
 #		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
 		sudo touch /home/$hostel/$room/$name/userDetails.txt
     	sudo touch /home/$hostel/$room/$name/fees.txt
-		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
+		chmod 777 /home/$hostel/$room/$name/userDetails.txt
 		echo "name rollno hostel room mess messpref" >> /home/$hostel/$room/$name/userDetails.txt			
 		echo $name" "$rollno" "$hostel" "$room" "$mess" "$messpref >> /home/$hostel/$room/$name/userDetails.txt	
 
