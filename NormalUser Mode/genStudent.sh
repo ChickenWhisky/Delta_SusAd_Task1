@@ -24,7 +24,6 @@ getYear() {
 	local year=$(cut --characters=5-6 <<< $rollno)
 	local currentyear=$(date +%y)
 	echo $(($currentyear-$year+1))
-	esac
 }
 addusers(){
 	echo $hostel
