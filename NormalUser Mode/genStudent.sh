@@ -55,13 +55,10 @@ then
      	department= $(echo "getDepartment $rollno")
 		echo $department
 		year= $(echo "getYear $rollno")
-#		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
 		sudo touch /home/$hostel/$room/$name/userDetails.txt
     	sudo touch /home/$hostel/$room/$name/fees.txt		
-		echo 'name rollno hostel room mess messpref' | sudo tee -a /home/$hostel/$room/$name/userDetails.txt		
-		echo $name" "$rollno" "$hostel" "$room" "$mess" "$messpref | sudo tee -a /home/$hostel/$room/$name/userDetails.txt		
-#		echo "name rollno hostel room mess messpref" >> /home/$hostel/$room/$name/userDetails.txt			
-#		echo $name" "$rollno" "$hostel" "$room" "$mess" "$messpref >> /home/$hostel/$room/$name/userDetails.txt	
+		echo 'name rollno hostel year room mess allocated_mess month mess_preference' | sudo tee -a /home/$hostel/$room/$name/userDetails.txt		
+		echo $name" "$rollno" "$hostel" "$year" "$room" "$mess"  -  - "$messpref | sudo tee -a /home/$hostel/$room/$name/userDetails.txt		
 
 #Checks if the hostel is GarnetB then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
