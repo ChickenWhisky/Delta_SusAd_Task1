@@ -11,11 +11,14 @@ sudo userdel Opal
 sudo userdel GarnetA
 sudo userdel GarnetB
 
-while read -r name 
+while read name 
 do
-    if [ $name != "Name" ]
+    if [ $name = "Name" ]
     then
+        echo "Name is just a header"
+    else
         sudo userdel $name
+
     fi
 
 done < /home/thomas/Desktop/Sysad/Task1/NormalUser\ Mode/src/studentDetails.txt
