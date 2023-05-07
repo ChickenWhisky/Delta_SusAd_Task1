@@ -6,7 +6,7 @@ file="/home"
 
 getDepartment() {
 	local dep=$(cut -c2-3 <<< $rollno)
-	case dep in
+	case $dep in
 		06) echo "CSE";;
 		07) echo "CSE";;
 		08) echo "CSE";;
@@ -22,7 +22,7 @@ getDepartment() {
 }
 getYear() {
 	local year=$(cut -c5-6 <<< $rollno)
-	case year in
+	case $year in
 		22) echo 1;;
 		21) echo 2;;
 		20) echo 3;;
