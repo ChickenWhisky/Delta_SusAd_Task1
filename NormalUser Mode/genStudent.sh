@@ -53,7 +53,7 @@ then
 	if [ "$hostel" = "GarnetA" ]
 		then
 			echo $hostel
-			if [ -d /home/$hostel/$room/Student1 ]
+			if [[ -d /home/$hostel/$room/Student1 ]]
 			    then
 				sudo useradd -m -d /home/$hostel/$room/Student2 $name
 				department= $(echo "getDepartment $rollno")
@@ -63,7 +63,7 @@ then
 				sudo chmod	u+x	/home/$hostel/$room/Student1/userDetails.txt
 				sudo cat > /home/$hostel/$room/Student2/userDetails.txt ;$name $rollno $hostel $room $mess $messpref		fi
 
-			elif [ ! -d /home/$hostel/$room/Student1 ] 
+			elif [[ ! -d /home/$hostel/$room/Student1 ]] 
 				then
 				echo "Its working"
 		    	sudo useradd -m -d /home/$hostel/$room/Student1 $name
