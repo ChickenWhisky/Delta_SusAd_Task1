@@ -22,13 +22,22 @@ getDepartment() {
 }
 getYear() {
 	local year=$(cut --characters=5-6 <<< $rollno)
-	case $year in
-		22) echo 1;;
-		21) echo 2;;
-		20) echo 3;;
-		19) echo 4;;
-		18) echo 5;;
+	local currentyear=$(date +%y)
+	echo $(($currentyear-$year+1))
 	esac
+}
+addusers(){
+	echo $hostel
+	echo "Its working"
+ 	sudo useradd -m -d /home/$hostel/$room/$name $name
+   	department= $(echo "getDepartment $rollno")
+	echo $department
+	year= $(echo "getYear $rollno")
+	month=date +%m
+	sudo touch /home/$hostel/$room/$name/userDetails.txt
+   	sudo touch /home/$hostel/$room/$name/fees.txt		
+	echo 'name rollno hostel year room mess allocated_mess month mess_preference' | sudo tee -a /home/$hostel/$room/$name/userDetails.txt		
+	echo $name" "$rollno" "$hostel" "$year" "$room" "$mess" - "$month" "$messpref | sudo tee -a /home/$hostel/$room/$name/userDetails.txt			
 }
 
 
@@ -49,62 +58,26 @@ then
 
 	if [ "$hostel" = "GarnetA" ]
 		then
-		echo $hostel
-		echo "Its working"
-    	sudo useradd -m -d /home/$hostel/$room/$name $name
-     	department= $(echo "getDepartment $rollno")
-		echo $department
-		year= $(echo "getYear $rollno")
-		sudo touch /home/$hostel/$room/$name/userDetails.txt
-    	sudo touch /home/$hostel/$room/$name/fees.txt		
-		echo 'name rollno hostel year room mess allocated_mess month mess_preference' | sudo tee -a /home/$hostel/$room/$name/userDetails.txt		
-		echo $name" "$rollno" "$hostel" "$year" "$room" "$mess"  -  - "$messpref | sudo tee -a /home/$hostel/$room/$name/userDetails.txt		
+		addusers
 
 #Checks if the hostel is GarnetB then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
 	elif [ "$hostel" = "GarnetB" ]
 		then
-		echo $hostel
-		echo "Its working"
-    	sudo useradd -m -d /home/$hostel/$room/$name $name
-     	department= $(echo "getDepartment $rollno")
-		year= $(echo "getYear $rollno")
-#		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
-		sudo touch /home/$hostel/$room/$name/userDetails.txt
-    	sudo touch /home/$hostel/$room/$name/fees.txt
-		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
-#		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
+		addusers
 		
 
 #Checks if the hostel is Opal then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
 	elif [ "$hostel" = "Opal" ]
 		then
-		echo $hostel
-		echo "Its working"
-    	sudo useradd -m -d /home/$hostel/$room/$name $name
-     	department= $(echo "getDepartment $rollno")
-		year= $(echo "getYear $rollno")
-#		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
-     	sudo touch /home/$hostel/$room/$name/userDetails.txt
-    	sudo touch /home/$hostel/$room/$name/fees.txt
-		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
-#		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
+		addusers
 
 #Checks if the hostel is Agate then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
 	elif [ "$hostel" = "Agate" ]
 		then
-		echo $hostel
-		echo "Its working"
-    	sudo useradd -m -d /home/$hostel/$room/$name $name
-     	department= $(echo "getDepartment $rollno")
-		year= $(echo "getYear $rollno")
-#		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
-		sudo touch /home/$hostel/$room/$name/userDetails.txt
-    	sudo touch /home/$hostel/$room/$name/fees.txt
-		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
-#		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
+		addusers
 
 	fi	
 	done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
@@ -121,62 +94,23 @@ else
 
 	if [ "$hostel" = "GarnetA" ]
 		then
-		echo $hostel
-		echo "Its working"
-    	sudo useradd -m -d /home/$hostel/$room/$name $name
-     	department= $(echo "getDepartment $rollno")
-		year= $(echo "getYear $rollno")
-		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
-#		sudo touch /home/$hostel/$room/$name/userDetails.txt
-    	sudo touch /home/$hostel/$room/$name/fees.txt
-#		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
-#		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
-
+		addusers
 #Checks if the hostel is GarnetB then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
 	elif [ "$hostel" = "GarnetB" ]
 		then
-		echo $hostel
-		echo "Its working"
-    	sudo useradd -m -d /home/$hostel/$room/$name $name
-     	department= $(echo "getDepartment $rollno")
-		year= $(echo "getYear $rollno")
-		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
-#		sudo touch /home/$hostel/$room/$name/userDetails.txt
-    	sudo touch /home/$hostel/$room/$name/fees.txt
-#		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
-#		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
-		
+		addusers
 
 #Checks if the hostel is Opal then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
 	elif [ "$hostel" = "Opal" ]
 		then
-		echo $hostel
-		echo "Its working"
-    	sudo useradd -m -d /home/$hostel/$room/$name $name
-     	department= $(echo "getDepartment $rollno")
-		year= $(echo "getYear $rollno")
-		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
-#		sudo touch /home/$hostel/$room/$name/userDetails.txt
-    	sudo touch /home/$hostel/$room/$name/fees.txt
-#		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
-#		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
-
+		addusers
 #Checks if the hostel is Agate then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
 	elif [ "$hostel" = "Agate" ]
 		then
-		echo $hostel
-		echo "Its working"
-    	sudo useradd -m -d /home/$hostel/$room/$name $name
-     	department= $(echo "getDepartment $rollno")
-		year= $(echo "getYear $rollno")
-		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
-#		sudo touch /home/$hostel/$room/$name/userDetails.txt
-    	sudo touch /home/$hostel/$room/$name/fees.txt
-#		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
-#		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
+		addusers
 
 	fi	
 	done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
