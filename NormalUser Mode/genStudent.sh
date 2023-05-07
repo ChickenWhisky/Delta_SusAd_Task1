@@ -54,11 +54,11 @@ then
     	sudo useradd -m -d /home/$hostel/$room/$name $name
      	department= $(echo "getDepartment $rollno")
 		year= $(echo "getYear $rollno")
-		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
-#		sudo touch /home/$hostel/$room/userDetails.txt
-    	sudo touch /home/$hostel/$room/fees.txt
-#		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
 #		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
+		sudo touch /home/$hostel/$room/$name/userDetails.txt
+    	sudo touch /home/$hostel/$room/$name/fees.txt
+		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
+		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
 
 #Checks if the hostel is GarnetB then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
@@ -69,10 +69,10 @@ then
     	sudo useradd -m -d /home/$hostel/$room/$name $name
      	department= $(echo "getDepartment $rollno")
 		year= $(echo "getYear $rollno")
-		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
-#		sudo touch /home/$hostel/$room/userDetails.txt
-    	sudo touch /home/$hostel/$room/fees.txt
-#		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
+#		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
+		sudo touch /home/$hostel/$room/$name/userDetails.txt
+    	sudo touch /home/$hostel/$room/$name/fees.txt
+		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
 #		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
 		
 
@@ -85,10 +85,10 @@ then
     	sudo useradd -m -d /home/$hostel/$room/$name $name
      	department= $(echo "getDepartment $rollno")
 		year= $(echo "getYear $rollno")
-		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
-#		sudo touch /home/$hostel/$room/userDetails.txt
-    	sudo touch /home/$hostel/$room/fees.txt
-#		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
+#		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
+     	sudo touch /home/$hostel/$room/$name/userDetails.txt
+    	sudo touch /home/$hostel/$room/$name/fees.txt
+		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
 #		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
 
 #Checks if the hostel is Agate then creates a new student user,its home directory,Userdetails.txt &fees.txt file
@@ -100,10 +100,10 @@ then
     	sudo useradd -m -d /home/$hostel/$room/$name $name
      	department= $(echo "getDepartment $rollno")
 		year= $(echo "getYear $rollno")
-		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
-#		sudo touch /home/$hostel/$room/userDetails.txt
-    	sudo touch /home/$hostel/$room/fees.txt
-#		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
+#		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
+		sudo touch /home/$hostel/$room/$name/userDetails.txt
+    	sudo touch /home/$hostel/$room/$name/fees.txt
+		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
 #		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
 
 	fi	
@@ -127,8 +127,8 @@ else
      	department= $(echo "getDepartment $rollno")
 		year= $(echo "getYear $rollno")
 		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
-#		sudo touch /home/$hostel/$room/userDetails.txt
-    	sudo touch /home/$hostel/$room/fees.txt
+#		sudo touch /home/$hostel/$room/$name/userDetails.txt
+    	sudo touch /home/$hostel/$room/$name/fees.txt
 #		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
 #		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
 
@@ -142,8 +142,8 @@ else
      	department= $(echo "getDepartment $rollno")
 		year= $(echo "getYear $rollno")
 		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
-#		sudo touch /home/$hostel/$room/userDetails.txt
-    	sudo touch /home/$hostel/$room/fees.txt
+#		sudo touch /home/$hostel/$room/$name/userDetails.txt
+    	sudo touch /home/$hostel/$room/$name/fees.txt
 #		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
 #		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
 		
@@ -158,8 +158,8 @@ else
      	department= $(echo "getDepartment $rollno")
 		year= $(echo "getYear $rollno")
 		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
-#		sudo touch /home/$hostel/$room/userDetails.txt
-    	sudo touch /home/$hostel/$room/fees.txt
+#		sudo touch /home/$hostel/$room/$name/userDetails.txt
+    	sudo touch /home/$hostel/$room/$name/fees.txt
 #		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
 #		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
 
@@ -173,8 +173,8 @@ else
      	department= $(echo "getDepartment $rollno")
 		year= $(echo "getYear $rollno")
 		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
-#		sudo touch /home/$hostel/$room/userDetails.txt
-    	sudo touch /home/$hostel/$room/fees.txt
+#		sudo touch /home/$hostel/$room/$name/userDetails.txt
+    	sudo touch /home/$hostel/$room/$name/fees.txt
 #		sudo chmod	777	/home/$hostel/$room/$name/userDetails.txt
 #		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/$name/userDetails.txt	
 
