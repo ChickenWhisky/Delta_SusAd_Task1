@@ -54,10 +54,11 @@ then
     	sudo useradd -m -d /home/$hostel/$room/ $name
      	department= $(echo "getDepartment $rollno")
 		year= $(echo "getYear $rollno")
-		sudo touch /home/$hostel/$room//userDetails.txt
-    	sudo touch /home/$hostel/$room//fees.txt
-		sudo chmod	777	/home/$hostel/$room//userDetails.txt
-		sudo echo "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room//userDetails.txt	
+		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/userDetails.txt	
+#		sudo touch /home/$hostel/$room/userDetails.txt
+    	sudo touch /home/$hostel/$room/fees.txt
+		sudo chmod	777	/home/$hostel/$room/userDetails.txt
+		sudo echo -e "$name $rollno $hostel $room $mess $messpref" >> /home/$hostel/$room/userDetails.txt	
 
 #Checks if the hostel is GarnetB then creates a new student user,its home directory,Userdetails.txt &fees.txt file
 
