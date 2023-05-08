@@ -26,7 +26,7 @@ getYear() {
 	year=$(($currentyear-$Year+1))
 }
 addusers(){
- 	sudo useradd -m -d /home/$hostel/$room/$name $name
+ 	sudo useradd -m -d /home/$hostel/$room/$name $name >/dev/null
    	getDepartment
 	getYear
 	sudo touch /home/$hostel/$room/$name/userDetails.txt
