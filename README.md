@@ -24,9 +24,14 @@ cd /home
 git clone https://github.com/ChickenWhisky/Delta_SusAd_Task1.git
 mv DeltaTask1_SysAd/init.sh .
 ```
+
+### Extra files for the sake of testing above scripts
+* putongit.sh is a simple script that simplifies the process of pushing commits to github
+* reset.sh is a script written to delete all users & directories created by genStudent.sh
+
 ### Normal Mode
-- [ ] genStudent.sh
-- [ ] permit.sh
+- [X] genStudent.sh
+- [X] permit.sh
 - [ ] updateDefaulter.sh
 - [ ] messAllocation.sh
 - [ ] feeBreakup.sh
