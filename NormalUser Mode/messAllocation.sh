@@ -6,12 +6,12 @@
 #This loop changes a variable based on who is logging in. If the user is a student then checker='student'.If HAD then checker='HAD'
 
 if [ "$(whoami)" = "HAD" ];then
-    checker='student'
+    checker='HAD'
 else
     while read -r name rollno hostel room mess messpref
         do
             if [ "$(whoami)" = "$name" ];then
-                checker=1
+                checker='student'
                 rollnumber=$rollno
                 break
             #elif ["$(whomai)"="$hostel"];then;checker=1;break;
