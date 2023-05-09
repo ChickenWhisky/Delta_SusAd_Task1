@@ -31,8 +31,8 @@ addusers(){
 	getYear
 	sudo touch /home/$hostel/$room/$name/userDetails.txt
    	sudo touch /home/$hostel/$room/$name/fees.txt		
-	echo 'name rollno department hostel year room mess allocated_mess month mess_preference' | sudo tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null
-	echo $name" "$rollno" "$department" "$hostel" "$year" "$room" "$mess" - "$(date +%m)" "$messpref | sudo tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null			
+	echo 'name rollno department hostel year room allocated_mess month mess_preference' | sudo tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null
+	echo $name" "$rollno" "$department" "$hostel" "$year" "$room" "$mess" "$(date +%m)" "$messpref | sudo tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null			
 	echo 'cumulativeAmountPaid= 0' | sudo tee -a /home/$hostel/$room/$name/fees.txt >/dev/null
 	echo 'User '$name' has been generated'
 

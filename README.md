@@ -17,12 +17,11 @@ sudo useradd -m -d /home/HAD HAD
 cd /home/HAD
 ```
 
-* Sign in to User HAD execute the following on the terminal 
+* Sign in to User HAD & execute the following on the terminal 
 
 ```
 cd /home
 git clone https://github.com/ChickenWhisky/Delta_SusAd_Task1.git
-mv DeltaTask1_SysAd/init.sh .
 ```
 
 ### Extra files for the sake of testing above scripts
