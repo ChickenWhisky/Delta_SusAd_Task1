@@ -14,8 +14,8 @@ do
     sudo usermod -a -G $name $hostel
     sudo usermod -a -G $name HAD
     sudo chmod g=rwx /home/$hostel/$room/$name
-    sudo setfacl -m "g:$name:r-x" /home/$hostel/$room/$name/announcments.txt
-    sudo setfacl -m "g:$name:r-x" /home/$hostel/$room/$name/feeDefaulters.txt
+    sudo setfacl -m "g:$name:r-x" /home/$hostel/$room/$name/userDetails.txt
+    sudo setfacl -m "g:$name:r-x" /home/$hostel/$room/$name/fees.txt
 
 done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 
