@@ -2,17 +2,15 @@
 #A script to automate the deletion process for the sake of testing
 
 sudo rm -r /home/Delta_SusAd_Task1
-sudo rm -r /home/Agate
-sudo rm -r /home/Opal
-sudo rm -r /home/GarnetA
-sudo rm -r /home/GarnetB
-sudo rm -r /home/HAD
 
-sudo userdel Agate
-sudo userdel Opal
-sudo userdel GarnetA
-sudo userdel GarnetB
-sudo userdel HAD
+for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate' 'HAD'
+do
+    sudo rm -r /home/$i
+    sudo groupdel $i
+    sudo userdel $i
+
+done
+
 
 while read name rollno hostel room mess messpref
 do
