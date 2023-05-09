@@ -41,7 +41,6 @@ addusers(){
 addhostels(){
 	
 	sudo useradd -m -d /home/HAD HAD >/dev/null;echo "HAD:HAD" | sudo chpasswd
-	sudo chmod 754 /home/HAD	
 	sudo cp /home/Delta_SusAd_Task1/NormalUser\ Mode/src/mess.txt /home/HAD/mess.txt
 	sudo cp /home/Delta_SusAd_Task1/NormalUser\ Mode/messAllocation.sh /home/HAD/messAllocation.sh
 

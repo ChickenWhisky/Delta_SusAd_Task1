@@ -16,6 +16,8 @@ do
     sudo chmod g=rwx /home/$hostel/$room/$name
     sudo setfacl -m "g:$name:rwx" /home/$hostel/$room/$name/userDetails.txt
     sudo setfacl -m "g:$name:rwx" /home/$hostel/$room/$name/fees.txt
+    sudo setfacl -m "g:$name:rwx" /home/$hostel/$room/$name/messAllocation.sh
+
 
 done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 
@@ -28,4 +30,6 @@ do
 done
 sudo chmod 754 /home/HAD
 sudo setfacl -m "g:HAD:rwx" /home/HAD/mess.txt
+sudo setfacl -m "g:HAD:rwx" /home/HAD/messAllocation.sh
+
 
