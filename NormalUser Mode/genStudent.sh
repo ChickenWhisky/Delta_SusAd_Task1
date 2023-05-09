@@ -26,7 +26,7 @@ getYear() {
 	year=$(($currentyear-$Year+1))
 }
 addusers(){
- 	sudo useradd -m -d /home/$hostel/$room/$name $name >/dev/null;echo "$name:" | sudo chpasswd
+ 	sudo useradd -m -d /home/$hostel/$room/$name $name >/dev/null;echo "$name:password" | sudo chpasswd
    	getDepartment
 	getYear
 	sudo touch /home/$hostel/$room/$name/userDetails.txt
@@ -42,7 +42,7 @@ addhostels(){
 	sudo mv src/mess.txt /home/HAD/mess.text
 	for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'
 	do  	
-	sudo useradd -m -d  /home/$i $i
+	sudo useradd -m -d  /home/$i $i;echo "$name:$i" | sudo chpasswd
 	sudo chmod 777 /home/$i
 	sudo touch /home/$i/announcments.txt
 	sudo touch /home/$i/feeDefaulters.txt
