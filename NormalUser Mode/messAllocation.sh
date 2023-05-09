@@ -3,8 +3,9 @@
 
 #This loop changes a variable based on who is logging in. If the user is a student then checker='student'.If HAD then checker='HAD'
 
-if [ "$(whomai)"="HAD" ];then;checker='student'
-else;then;
+if [ "$(whomai)"="HAD" ];then
+    checker='student'
+else;then
     while read -r name rollno hostel room mess messpref
         do
             if [ "$(whoami)"="$name" ];then;checker=1;rollnumber=$rollno;break;
@@ -17,24 +18,34 @@ else;then;
 capcityarray=(0 0 0)
 
 if [ "$checker"="student" ];then
+    
     while read mess capacity;do
         echo $mess"/t"$capacity
         
-        if [ "$mess"="3" ];then;break
+        if [ "$mess"="3" ];then
+            break
      fi
+   
     echo Please enter your mess preference as a '3' digit numeral where each digit corresponds to the mess number
+   
     while [ 1 -le 0 ] 
         read messpreference
         if [ "$messpreference"="123" || "$messpreference"="132" || "$messpreference"="213" || "$messpreference"="231" ||"$messpreference"="321" || "$messpreference"="312" ]
-        then;break
-         else;echo Invalid preference order. Please enter a valid preference order
+        then
+            break
+        
+        else
+            echo Invalid preference order. Please enter a valid preference order
 
     echo $rollnumber $messpreference >> /home/HAD/mess.txt
 
 ################################  HAD SCRIPT  ##############################################
 else
     while read name rollno department hostel year room allocated_mess month mess_preference;do
-        if [ "$name"="name" ];then;continue
+        
+        if [ "$name"="name" ];then
+            continue
+        
         else
             break
     done < /home/$hostel/$room/$name/userDetails.txt
