@@ -25,10 +25,10 @@ git clone https://github.com/ChickenWhisky/Delta_SusAd_Task1.git
 mv DeltaTask1_SysAd/init.sh .
 ```
 ### Normal Mode
--[] genStudent.sh
--[] permit.sh
--[] updateDefaulter.sh
--[] messAllocation.sh
--[] feeBreakup.sh
+- [ ] genStudent.sh
+- [ ] permit.sh
+- [ ] updateDefaulter.sh
+- [ ] messAllocation.sh
+- [ ] feeBreakup.sh
 ### Superuser Mode
 -[] signOut.sh
