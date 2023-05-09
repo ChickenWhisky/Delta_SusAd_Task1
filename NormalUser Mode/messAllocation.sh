@@ -8,7 +8,9 @@ if [ "$(whomai)"="HAD" ];then
 else
     while read -r name rollno hostel room mess messpref
         do
-            if [ "$(whoami)"="$name" ];then;checker=1;rollnumber=$rollno;
+            if [ "$(whoami)"="$name" ];then
+                checker=1
+                rollnumber=$rollno
                 break
             #elif ["$(whomai)"="$hostel"];then;checker=1;break;
         fi    
