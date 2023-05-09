@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #add all wardens to the primary groups of each student in their hostel and change each students group permissions to rwx(DONE)
 #add add HAD to the primary groups of each student and change those group permissions to rwx(DONE)
