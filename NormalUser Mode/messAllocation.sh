@@ -5,7 +5,7 @@
 
 if [ "$(whomai)"="HAD" ];then
     checker='student'
-else;then
+else
     while read -r name rollno hostel room mess messpref
         do
             if [ "$(whoami)"="$name" ];then;checker=1;rollnumber=$rollno;break;
