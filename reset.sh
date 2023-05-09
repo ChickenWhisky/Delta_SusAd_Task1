@@ -6,8 +6,9 @@ sudo rm -r /home/Delta_SusAd_Task1
 for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate' 'HAD'
 do
     sudo rm -r /home/$i
-    sudo groupdel $i
     sudo userdel $i
+    sudo groupdel $i
+	sudo chmod 754 /home/$i	
 
 done
 
