@@ -21,7 +21,9 @@ for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'
 do
     sudo setfacl -m "g:$i:r-x" /home/$i/announcments.txt
     sudo setfacl -m "g:$i:r-x" /home/$i/feeDefaulters.txt
-done
+    sudo chmod 754 /home/$i	
 
+done
+sudo chmod 754 /home/HAD
 sudo setfacl -m "g:HAD:rwx" /home/HAD/mess.txt
 
