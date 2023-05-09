@@ -8,9 +8,9 @@ if [ "$(whomai)"="HAD" ];then
 else
     while read -r name rollno hostel room mess messpref
         do
-            if [ "$(whoami)"="$name" ];then;checker=1;rollnumber=$rollno;break;
+            if [ "$(whoami)"="$name" ];then;checker=1;rollnumber=$rollno;
+                break
             #elif ["$(whomai)"="$hostel"];then;checker=1;break;
-            else;echo Invalid User is running the file;continue;
         fi    
         done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 
