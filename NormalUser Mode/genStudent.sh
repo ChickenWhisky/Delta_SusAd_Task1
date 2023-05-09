@@ -41,7 +41,7 @@ addhostels(){
 	
 	sudo useradd -m -d /home/HAD HAD >/dev/null;echo "HAD:HAD" | sudo chpasswd
 	sudo chmod 754 /home/HAD	
-	sudo mv /home/Delta_SusAd_Task1/NormalUser\ Mode/src/mess.txt /home/HAD/mess.text
+	sudo mv /home/Delta_SusAd_Task1/NormalUser\ Mode/src/mess.txt /home/HAD/mess.txt
 
 	for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'
 	do  	
