@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #For now the directory to which the script is refering to for the location of fees.txt
 
