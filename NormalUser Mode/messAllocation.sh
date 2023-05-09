@@ -1,14 +1,16 @@
+#!/bin/bash
+
 #Write the scripts in two parts based on who is logging in 
 
 
 #This loop changes a variable based on who is logging in. If the user is a student then checker='student'.If HAD then checker='HAD'
 
-if [ "$(whomai)"="HAD" ];then
+if [ "$(whomai)" = "HAD" ];then
     checker='student'
 else
     while read -r name rollno hostel room mess messpref
         do
-            if [ "$(whoami)"="$name" ];then
+            if [ "$(whoami)" = "$name" ];then
                 checker=1
                 rollnumber=$rollno
                 break
@@ -18,7 +20,7 @@ else
 fi
 
 ################################  STUDENT SCRIPT  ##############################################
-capcityarray=(0 0 0)
+capcityarray= (0 0 0)
 
 if [ "$checker"="student" ];then
     
