@@ -35,7 +35,7 @@ addusers(){
 	echo $name" "$rollno" "$department" "$hostel" "$year" "$room" "$mess" - "$(date +%m)" "$messpref | sudo tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null			
 	echo 'cumulativeAmountPaid= 0' | sudo tee -a /home/$hostel/$room/$name/fees.txt >/dev/null
 	echo 'User '$name' has been generated'
-	echo "$namename:password" | chpasswd >/dev/null
+	echo "$namename:password" | sudo chpasswd >/dev/null
 
 
 }
