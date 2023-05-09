@@ -19,9 +19,9 @@ done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 
 for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'
 do
-    setfacl -m "g:$i:rwx" /home/$i/announcments.txt
-    setfacl -m "g:$i:rwx" /home/$i/feeDefaulters.txt
+    setfacl -m "g:$i:r-x" /home/$i/announcments.txt
+    setfacl -m "g:$i:r-x" /home/$i/feeDefaulters.txt
 done
 
-setfacl -m "g:HAD:" /home/HAD/mess.txt
+setfacl -m "g:HAD:rwx" /home/HAD/mess.txt
 
