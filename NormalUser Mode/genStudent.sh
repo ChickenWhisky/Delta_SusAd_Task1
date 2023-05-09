@@ -33,6 +33,7 @@ addusers(){
    	sudo touch /home/$hostel/$room/$name/fees.txt		
 	echo 'name rollno department hostel year room allocated_mess month mess_preference' | sudo tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null
 	echo $name" "$rollno" "$department" "$hostel" "$year" "$room" "$mess" "$(date +%m)" "$messpref | sudo tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null			
+	sudo mv /home/Delta_SusAd_Task1/NormalUser\ Mode/src/mess.txt /home/$hostel/$room/$name/messAllocation.sh
 	echo 'cumulativeAmountPaid= 0' | sudo tee -a /home/$hostel/$room/$name/fees.txt >/dev/null
 	echo 'User '$name' has been generated'
 
@@ -42,6 +43,8 @@ addhostels(){
 	sudo useradd -m -d /home/HAD HAD >/dev/null;echo "HAD:HAD" | sudo chpasswd
 	sudo chmod 754 /home/HAD	
 	sudo mv /home/Delta_SusAd_Task1/NormalUser\ Mode/src/mess.txt /home/HAD/mess.txt
+	sudo mv /home/Delta_SusAd_Task1/NormalUser\ Mode/src/mess.txt /home/HAD/messAllocation.sh
+
 
 	for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'
 	do  	
