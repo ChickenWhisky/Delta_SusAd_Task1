@@ -8,7 +8,6 @@ do
     sudo rm -r /home/$i
     sudo userdel $i
     sudo groupdel $i
-	sudo chmod 754 /home/$i	
 
 done
 
