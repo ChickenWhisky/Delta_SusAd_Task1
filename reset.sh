@@ -12,6 +12,7 @@ sudo userdel Agate
 sudo userdel Opal
 sudo userdel GarnetA
 sudo userdel GarnetB
+sudo userdel HAD
 
 while read name rollno hostel room mess messpref
 do
