@@ -73,16 +73,16 @@ else
         if [ ${capcityarray[$((${prefarray[0]}-1))]} -g 0 ];then 
             echo "name rollno department hostel year room allocated_mess month mess_preference" >> "/home/$hostel/$room/$name/userDetails.txt"             
             echo "$name $rollno $department $hostel $year $room $allocated_mess $month ${prefarray[0]}" >> "/home/$hostel/$room/$name/userDetails.txt"
-            capcityarray[$((${prefarray[0]}-1))]=((${capcityarray[$((${prefarray[0]}-1))]}-1))
+            capcityarray[$(( ${prefarray[0]}-1 ))]= ${capcityarray[$(( ${prefarray[0]}-1 ))]}-1
         elif [ ${capcityarray[$((${prefarray[1]}-1))]} -g 0 ];then 
             echo "name rollno department hostel year room allocated_mess month mess_preference" >> "/home/$hostel/$room/$name/userDetails.txt"             
             echo "$name $rollno $department $hostel $year $room $allocated_mess $month ${prefarray[1]}" >> "/home/$hostel/$room/$name/userDetails.txt"
-            capcityarray[$((${prefarray[1]}-1))]=((${capcityarray[$((${prefarray[1]}-1))]}-1))
+            capcityarray[$((${prefarray[1]}-1))]= ${capcityarray[$((${prefarray[1]}-1))]}-1
 
         else 
             echo "name rollno department hostel year room allocated_mess month mess_preference" >> "/home/$hostel/$room/$name/userDetails.txt"             
             echo "$name $rollno $department $hostel $year $room $allocated_mess $month ${prefarray[2]}" >> "/home/$hostel/$room/$name/userDetails.txt"    
-            capcityarray[$((${prefarray[2]}-1))]=((${capcityarray[$((${prefarray[2]}-1))]}-1))
+            capcityarray[$((${prefarray[2]}-1))]=${capcityarray[$((${prefarray[2]}-1))]}-1
  
         fi
     done
