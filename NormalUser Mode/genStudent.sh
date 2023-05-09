@@ -46,7 +46,6 @@ addhostels(){
 	for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'
 	do  	
 	sudo useradd -m -d  /home/$i $i;echo "$i:$i" | sudo chpasswd
-	sudo chmod 754 /home/$i
 	sudo touch /home/$i/announcments.txt
 	sudo touch /home/$i/feeDefaulters.txt
 	done

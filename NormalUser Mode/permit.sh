@@ -19,9 +19,9 @@ done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 
 for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'
 do
-    setfacl -m "g:$i:r-x" /home/$i/announcments.txt
-    setfacl -m "g:$i:r-x" /home/$i/feeDefaulters.txt
+    sudo setfacl -m "g:$i:r-x" /home/$i/announcments.txt
+    sudo setfacl -m "g:$i:r-x" /home/$i/feeDefaulters.txt
 done
 
-setfacl -m "g:HAD:rwx" /home/HAD/mess.txt
+sudo setfacl -m "g:HAD:rwx" /home/HAD/mess.txt
 
