@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #For now the directory to which the script is refering to for the location of fees.txt
 
@@ -28,7 +28,7 @@ case $input in
     1) fee_type_paid="TuitionFee";amountPaid=50 ;;
     2) fee_type_paid="HostelRent";amountPaid=20 ;;
     3) fee_type_paid="ServiceCharge";amountPaid=10 ;;
-    4) fee_type_paid="MessFee";amountPaid=20 ;;
+    4) fee_type_paid="MessFee";amountPaid=20                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ;;
     esac
 
 # /home/Delta_SusAd_Task1/NormalUser\ Mode/src/feeBreakup.txt 

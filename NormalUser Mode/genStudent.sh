@@ -40,11 +40,13 @@ addusers(){
 addhostels(){
 	
 	sudo useradd -m -d /home/HAD HAD >/dev/null;echo "HAD:HAD" | sudo chpasswd
-	sudo mv src/mess.txt /home/HAD/mess.text
+	sudo chmod 774 /home/HAD	
+	sudo mv /home/Delta_SusAd_Task1/NormalUser\ Mode/src/mess.txt /home/HAD/mess.text
+
 	for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'
 	do  	
 	sudo useradd -m -d  /home/$i $i;echo "$i:$i" | sudo chpasswd
-	sudo chmod 777 /home/$i
+	sudo chmod 744 /home/$i
 	sudo touch /home/$i/announcments.txt
 	sudo touch /home/$i/feeDefaulters.txt
 	done
