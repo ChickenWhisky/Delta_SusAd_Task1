@@ -26,7 +26,7 @@ getYear() {
 	year=$(($currentyear-$Year+1))
 }
 addusers(){
- 	sudo useradd -m -d /home/$hostel/$room/$name $name >/dev/null
+ 	sudo useradd -m -d /home/$hostel/$room/$name $name >/dev/null;echo "$name:password" | chpasswd
    	getDepartment
 	getYear
 	sudo touch /home/$hostel/$room/$name/userDetails.txt
@@ -35,8 +35,6 @@ addusers(){
 	echo $name" "$rollno" "$department" "$hostel" "$year" "$room" "$mess" - "$(date +%m)" "$messpref | sudo tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null			
 	echo 'cumulativeAmountPaid= 0' | sudo tee -a /home/$hostel/$room/$name/fees.txt >/dev/null
 	echo 'User '$name' has been generated'
-	echo "$namename:password" | sudo chpasswd >/dev/null
-
 
 }
 addhostels(){
