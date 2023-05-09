@@ -11,8 +11,7 @@ else
     while read -r name rollno hostel room mess messpref
         do
             if [ "$(whoami)" = "$name" ];then
-                checker='student'
-                rollnumber=$rollno
+                checker="student"
                 break
             #elif ["$(whomai)"="$hostel"];then;checker=1;break;
             fi    
@@ -30,7 +29,7 @@ if [ "$checker" = "student" ];then
         if [ "$mess" = "3" ];then
             break
         fi
-    done
+    done > /home/HAD/mess.txt
    
     echo Please enter your mess preference as a '3' digit numeral where each digit corresponds to the mess number
    
@@ -44,7 +43,7 @@ if [ "$checker" = "student" ];then
             echo Invalid preference order. Please enter a valid preference order
         fi
     done
-    echo $rollnumber $messpreference >> /home/HAD/mess.txt
+    echo $rollno $messpreference >> /home/HAD/mess.txt
 
 ################################  HAD SCRIPT  ##############################################
 else
@@ -74,12 +73,17 @@ else
         if [ ${capcityarray[$((${prefarray[0]}-1))]} -g 0 ];then 
             echo "name rollno department hostel year room allocated_mess month mess_preference" >> "/home/$hostel/$room/$name/userDetails.txt"             
             echo "$name $rollno $department $hostel $year $room $allocated_mess $month ${prefarray[0]}" >> "/home/$hostel/$room/$name/userDetails.txt"
+            capcityarray[$((${prefarray[0]}-1))]=((${capcityarray[$((${prefarray[0]}-1))]}-1))
         elif [ ${capcityarray[$((${prefarray[1]}-1))]} -g 0 ];then 
             echo "name rollno department hostel year room allocated_mess month mess_preference" >> "/home/$hostel/$room/$name/userDetails.txt"             
             echo "$name $rollno $department $hostel $year $room $allocated_mess $month ${prefarray[1]}" >> "/home/$hostel/$room/$name/userDetails.txt"
+            capcityarray[$((${prefarray[1]}-1))]=((${capcityarray[$((${prefarray[1]}-1))]}-1))
+
         else 
             echo "name rollno department hostel year room allocated_mess month mess_preference" >> "/home/$hostel/$room/$name/userDetails.txt"             
             echo "$name $rollno $department $hostel $year $room $allocated_mess $month ${prefarray[2]}" >> "/home/$hostel/$room/$name/userDetails.txt"    
+            capcityarray[$((${prefarray[2]}-1))]=((${capcityarray[$((${prefarray[2]}-1))]}-1))
+ 
         fi
     done
 
