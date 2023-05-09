@@ -10,10 +10,10 @@
 while read -r name rollno hostel room mess messpref
 do
     sudo usermod -a -G $hostel $name
-    sudo usermod -a -G student $name
+    sudo usermod -a -G HAD $name
     sudo usermod -a -G $name $hostel
     sudo usermod -a -G $name HAD
-    sudo chmod g=rwx $name 
+    sudo chmod g=rwx /home/$hostel/$room/$name
 
 done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 
