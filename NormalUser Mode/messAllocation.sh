@@ -15,6 +15,7 @@ else
             #elif ["$(whomai)"="$hostel"];then;checker=1;break;
         fi    
         done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
+fi
 
 ################################  STUDENT SCRIPT  ##############################################
 capcityarray=(0 0 0)
