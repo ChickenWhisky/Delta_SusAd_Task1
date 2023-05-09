@@ -39,7 +39,7 @@ addusers(){
 }
 addhostels(){
 	
-	sudo useradd -m -d /home/HAD >/dev/null;echo "$name:HAD" | sudo chpasswd
+	sudo useradd -m -d /home/HAD >/dev/null;echo "HAD:HAD" | sudo chpasswd
 	sudo mv src/mess.txt /home/HAD/mess.text
 	for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'
 	do  	
