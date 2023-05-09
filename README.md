@@ -31,4 +31,4 @@ mv DeltaTask1_SysAd/init.sh .
 - [ ] messAllocation.sh
 - [ ] feeBreakup.sh
 ### Superuser Mode
--[] signOut.sh
+- [ ] signOut.sh
