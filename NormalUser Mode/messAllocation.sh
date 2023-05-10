@@ -21,6 +21,17 @@ fi
 
 ################################  STUDENT SCRIPT  ##############################################
 declare -a capcityarray=(0 0 0)
+while read MESS capacity
+do        
+
+    case $MESS in
+        1) capcityarray[0]=$capacity;;
+        2) capcityarray[1]=$capacity;;
+        3) capcityarray[2]=$capacity;;
+        Mess) continue;;
+        *) break;; 
+        esac
+    done > /home/HAD/mess.txt
 
 if [ "$checker" = "student" ];then
     
@@ -47,53 +58,57 @@ if [ "$checker" = "student" ];then
     echo $rollno $messpreference >> /home/HAD/mess.txt
 
 ################################  HAD SCRIPT  ##############################################
+
 else
-    while read  name rollno hostel room mess messpref
-    do    
-        while read Name Rollno Department Hostel Year Room Allocated_mess Month Mess_preference
+sed -n '6   ,$ p' /home/HAD/mess.txt | while read rollno pref
+    do
+        prefarray=($(echo $pref|sed  's/\(.\)/\1 /g'))
+        while read Name Rollno Hostel Room Mess Messpref
         do
-        if [ "$Name" = "$name" ]
-        then
-   
-        while read MESS capacity
-        do        
-
-            case $MESS in
-                1) capcityarray[0]=$capacity;;
-                2) capcityarray[1]=$capacity;;
-                3) capcityarray[2]=$capacity;;
-                Mess) continue;;
-                *) break;; 
-            esac
-        done > /home/HAD/mess.txt
-        sed -n '6   ,$ p' /home/HAD/mess.txt | while read rollno pref
-        do
-            prefarray=($(echo $pref|sed  's/\(.\)/\1 /g'))
-            if [ ${capcityarray[$((${prefarray[0]}-1))]} -g 0 ];then 
-                echo "name rollno department hostel year room allocated_mess month mess_preference" >> "/home/$hostel/$room/$Name/userDetails.txt"             
-                echo "$Name $Rollno $Department $hostel $year $room ${prefarray[0]} $month $Messpreference" >> "/home/$hostel/$room/$Name/userDetails.txt"
-                capcityarray[$(( ${prefarray[0]}-1 ))]= ${capcityarray[$(( ${prefarray[0]}-1 ))]}-1
-            elif [ ${capcityarray[$((${prefarray[1]}-1))]} -g 0 ];then 
-                echo "name rollno department hostel year room allocated_mess month mess_preference" >> "/home/$hostel/$room/$Name/userDetails.txt"             
-                echo "$Name $rollno $department $hostel $year $room ${prefarray[1]}_mess $month $messpreference " >> "/home/$hostel/$room/$Name/userDetails.txt"
-                capcityarray[$((${prefarray[1]}-1))]= ${capcityarray[$((${prefarray[1]}-1))]}-1
-
-            else 
-                echo "name rollno department hostel year room allocated_mess month mess_preference" >> "/home/$hostel/$room/$Name/userDetails.txt"             
-                echo "$Name $rollno $department $hostel $year $room ${prefarray[2]} $month $messpreference" >> "/home/$hostel/$room/$Name/userDetails.txt"    
-                capcityarray[$((${prefarray[2]}-1))]=${capcityarray[$((${prefarray[2]}-1))]}-1
-    
+            if [ "$Rollno" = "$rollno" ]
+            then
+                name=$Name   
+                room=$Room
+                hostel=$Hostel
+                break
+            else
+                continue
             fi
-        done
-        else
-            continue
-        fi
+        done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
+
+        while read NAME ROLLNO DEPARMENT HOSTEL YEAR ROOM ALLOCATED_MESS MONTH MESS_PREFERENCE
+        do
+            if [ "$NAME" = "name" ]
+            then    
+                continue
+            else
+                department=$DEPARMENT
+                year=$YEAR
+                month=$MONTH
+                mess_preference=$MESS_PREFERENCE
+            fi
+
         done < /home/$hostel/$room/$name/.userDetails.txt
 
-    done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
+
+               
+        if [ ${capcityarray[$((${prefarray[0]}-1))]} -g 0 ];then 
+            echo "name rollno department hostel year room allocated_mess month mess_preference" >> "/home/$hostel/$room/$Name/userDetails.txt"             
+            echo "$name $rollno $department $hostel $year $room ${prefarray[0]} $month $mess_preference" >> "/home/$hostel/$room/$Name/userDetails.txt"
+            capcityarray[$(( ${prefarray[0]}-1 ))]=$((${capcityarray[$(( ${prefarray[0]}-1 ))]}-1))
+        elif [ ${capcityarray[$((${prefarray[1]}-1))]} -g 0 ];then 
+            echo "name rollno department hostel year room allocated_mess month mess_preference" >> "/home/$hostel/$room/$Name/userDetails.txt"             
+            echo "$name $rollno $department $hostel $year $room ${prefarray[1]}_mess $month $mess_preference " >> "/home/$hostel/$room/$Name/userDetails.txt"
+            capcityarray[$((${prefarray[1]}-1))]=$((${capcityarray[$((${prefarray[1]}-1))]}-1))
+        else 
+            echo "name rollno department hostel year room allocated_mess month mess_preference" >> "/home/$hostel/$room/$Name/userDetails.txt"             
+            echo "$name $rollno $department $hostel $year $room ${prefarray[2]} $month $mess_preference" >> "/home/$hostel/$room/$Name/userDetails.txt"    
+            capcityarray[$((${prefarray[2]}-1))]=$((${capcityarray[$((${prefarray[2]}-1))]}-1))
+        fi
+    done     
 
 fi
     
-    
+
     
     
