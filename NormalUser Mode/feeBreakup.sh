@@ -21,7 +21,7 @@ while read line; do
         hostel=$(echo "$line" | awk '{print $3}')
         room=$(echo "$line" | awk '{print $5}')
     fi
-done < /home/GarnetA/0/Jennee/user.Details
+done < /home/GarnetA/0/Jennee/userDetails.txt
 #done < userDetails.txt
  
 case $input in
