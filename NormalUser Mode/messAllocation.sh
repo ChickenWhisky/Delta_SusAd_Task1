@@ -10,7 +10,7 @@ else
                 checker='student'
                 break
             fi    
-        done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetailstxt
+        done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 fi
 
 ########################################  STUDENT SCRIPT  ##############################################

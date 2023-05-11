@@ -30,7 +30,7 @@ addusers(){
 	echo 'name rollno department hostel year room allocated_mess month mess_preference' | sudo tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null
 	echo $name" "$rollno" "$department" "$hostel" "$year" "$room" "$mess" - "$(date +%m)" "$messpref | sudo tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null			
 	sudo cp /home/Delta_SusAd_Task1/NormalUser\ Mode/messAllocation.sh /home/$hostel/$room/$name/messAllocation.sh
-	sudo cp /home/Delta_SusAd_Task1/NormalUser\ Mode/messAllocation.sh /home/$hostel/$room/$name/feeBreakup.sh
+	sudo cp /home/Delta_SusAd_Task1/NormalUser\ Mode/feeBreakup.sh /home/$hostel/$room/$name/feeBreakup.sh
 	echo 'cumulativeAmountPaid= 0' | sudo tee -a /home/$hostel/$room/$name/fees.txt >/dev/null
 	echo 'User '$name' has been generated'
 }
