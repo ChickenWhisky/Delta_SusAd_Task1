@@ -12,10 +12,7 @@ then
     lastTransaction=$(tail -n 1 /home/$hostel/$room/$name/fees.txt)
     # Extract the number after "CummulativeAmount= "
     num=$(echo "$firstLine" | sed -n 's/^.*cumulativeAmountPaid= //p')
-    
-    while -r read x y z ComparableTransaction
-        comparableTransaction=$ComparableTransaction
-    do < $lastTransaction
+    read=`echo $lastTransaction | awk -v N=3 '{print $N}' >/dev/null`
     endOfSem=$(date '+%Y-%m-%d %H:%M:%S')
     endOfSemEpoch=$(date --date="$current" +"%s")
 

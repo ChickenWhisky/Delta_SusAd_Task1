@@ -26,15 +26,12 @@ case $input in
 
 lasTransaction=$(tail -n 1 /home/$hostel/$room/$name/fees.txt)
 feeChecker=0
-while -r read x y z ComparableTransaction
-    if [ "$fee_type_paid"="$read" ]
-    then    
-        feeChecker=1
-        break
-    else 
-        continue
-do < $lastTransaction
+read=`echo ${lastTransaction##* }`
 
+if [ "$fee_type_paid"="$read" ]
+then    
+    feeChecker=1
+fi
 if [ $feeChecker=0 ]
     current_value=$(head -n 1 "/home/$hostel/$room/$name/fees.txt" | sed 's/cumulativeAmountPaid=//')
     new_value=$(($current_value+$amountPaid))
