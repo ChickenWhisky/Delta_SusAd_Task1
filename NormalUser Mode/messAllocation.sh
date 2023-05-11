@@ -1,17 +1,23 @@
 #!/bin/bash
 
 user=$(whoami)
+#
 echo $user
+#
 if [ "$user" = "HAD" ]
 then
     checker="HAD"
+    #
     echo $checker
+    #
 else
     while read  name rollno hostel room mess messpref
         do
             if [ "$user" = "$name" ];then
                 checker="student"
+                #
                 echo $checker
+                #
                 break
             else
                 continue
@@ -21,22 +27,31 @@ fi
 
 ########################################  STUDENT SCRIPT  ##############################################
 declare -a capcityarray=(0 0 0)
+#
 echo ${capcityarray[0]}
-
+#
+echo Mess"/t"Capacity
 while read MESS capacity
 do        
-
     case $MESS in
-        1) capcityarray[0]=$capacity;;
-        2) capcityarray[1]=$capacity;;
-        3) capcityarray[2]=$capacity;break;;
+        1) echo $mess"/t"$capacity ;capcityarray[0]=$capacity ;;
+        2) echo $mess"/t"$capacity ;capcityarray[1]=$capacity ;;
+        3) echo $mess"/t"$capacity ;capcityarray[2]=$capacity;break ;;
         Mess) continue;;
         esac
     done > /home/HAD/mess.txt
 
-if [ "$checker" = "student" ];then
+#
+echo ${capcityarray[0]}
+echo ${capcityarray[1]}
+echo ${capcityarray[2]}
+#
+
+if [ "$checker" = "student" ]
+then
     
-    while read mess capacity;do
+    while read mess capacity
+    do
         echo $mess"/t"$capacity
         
         if [ "$mess" = "3" ];then
@@ -46,7 +61,8 @@ if [ "$checker" = "student" ];then
    
     echo Please enter your mess preference as a '3' digit numeral where each digit corresponds to the mess number
    
-    while [ 1 -le 0 ];do 
+    while true
+    do 
         read messpreference
         if [ "$messpreference" = "123" ] || [ "$messpreference" = "132" ] || [ "$messpreference" = "213" ] || [ "$messpreference" = "231" ] ||[ "$messpreference" = "321" ] || [ "$messpreference" = "312" ]
         then
