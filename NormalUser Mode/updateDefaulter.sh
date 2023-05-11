@@ -17,7 +17,7 @@ then
     endOfSemEpoch=$(date --date="$current" +"%s")
 
     # Check if the number is equal to 100
-    if [ "$num" -eq 100 ] && [ $comparableTransaction -le $endOfSemEpoch ] 
+    if [ $num -eq 100 ] && [ $comparableTransaction -le $endOfSemEpoch ] 
         then
             echo "$name" | tee -a /home/$hostel/announcments.txt >/dev/null
 

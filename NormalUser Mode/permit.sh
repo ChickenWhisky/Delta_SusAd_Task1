@@ -22,6 +22,7 @@ do
     sudo setfacl -m "g:$i:r-x" /home/$i/announcments.txt
     sudo setfacl -m "g:$i:r-x" /home/$i/feeDefaulters.txt
     sudo chmod 750 /home/$i	
+    sudo usermod -a -G $i HAD
 
 done
 sudo chmod 750 /home/HAD

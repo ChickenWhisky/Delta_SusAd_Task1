@@ -45,7 +45,7 @@ if [ $feeChecker=0 ]
 
     #Appends the latest transaction into the file
     echo "$fee_type_paid $amountPaid $transactionTime $epochtime" | tee -a /home/$hostel/$room/$name/fees.txt >/dev/null
-    echo "$fee_type_paid " has successfully been paid
+    echo "$fee_type_paid "has successfully been paid
 else
     echo This fee has already been payed please try another option
 fi
