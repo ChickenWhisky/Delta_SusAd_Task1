@@ -24,14 +24,29 @@ case $input in
     4) fee_type_paid="MessFee";amountPaid=20                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ;;
     esac
 
-current_value=$(head -n 1 "/home/$hostel/$room/$name/fees.txt" | sed 's/cumulativeAmountPaid=//')
-new_value=$(($current_value+$amountPaid))
+lasTransaction=$(tail -n 1 /home/$hostel/$room/$name/fees.txt)
+feeChecker=0
+while -r read x y z ComparableTransaction
+    if [ "$fee_type_paid"="$read" ]
+    then    
+        feeChecker=1
+        break
+    else 
+        continue
+do < $lastTransaction
 
-transactionTime=$(date '+%Y-%m-%d %H:%M:%S')
-epochtime=$(date --date="$transactionTime" +"%s") #for some reason the space infront of the '+' matters
+if [ $feeChecker=0 ]
+    current_value=$(head -n 1 "/home/$hostel/$room/$name/fees.txt" | sed 's/cumulativeAmountPaid=//')
+    new_value=$(($current_value+$amountPaid))
 
-# Update the first line of the file with the new value
-sed -i "1s/cumulativeAmountPaid=.*/cumulativeAmountPaidl=$new_value/" "/home/$hostel/$room/$name/fees.txt"
+    transactionTime=$(date '+%Y-%m-%d %H:%M:%S')
+    epochtime=$(date --date="$transactionTime" +"%s") #for some reason the space infront of the '+' matters
 
-#Appends the latest transaction into the file
-echo "$fee_type_paid $amountPaid $transactionTime $epochtime" | tee -a /home/$hostel/$room/$name/fees.txt >/dev/null
+    # Update the first line of the file with the new value
+    sed -i "1s/cumulativeAmountPaid=.*/cumulativeAmountPaidl=$new_value/" "/home/$hostel/$room/$name/fees.txt"
+
+    #Appends the latest transaction into the file
+    echo "$fee_type_paid $amountPaid $transactionTime $epochtime" | tee -a /home/$hostel/$room/$name/fees.txt >/dev/null
+    echo "$fee_type_paid "has been paid
+else
+    echo This fee has already been payed please try another option

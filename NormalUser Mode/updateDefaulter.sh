@@ -12,6 +12,7 @@ then
     lastTransaction=$(tail -n 1 /home/$hostel/$room/$name/fees.txt)
     # Extract the number after "CummulativeAmount= "
     num=$(echo "$firstLine" | sed -n 's/^.*cumulativeAmountPaid= //p')
+    
     while -r read x y z ComparableTransaction
         comparableTransaction=$ComparableTransaction
     do < $lastTransaction

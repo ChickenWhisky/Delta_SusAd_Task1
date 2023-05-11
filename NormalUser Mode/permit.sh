@@ -22,6 +22,7 @@ do
 done
 sudo chmod 750 /home/HAD
 sudo setfacl -m "g:HAD:rwx" /home/HAD/mess.txt
-sudo setfacl -m "g:HAD:rwx" /home/HAD/messAllocation.sh
+sudo setfacl -m "g:HAD:r-x" /home/HAD/messAllocation.sh
+sudo setfacl -m "g:HAD:r-x" /home/HAD/updateDefaulter.sh
 
 
