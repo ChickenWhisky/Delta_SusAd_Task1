@@ -33,6 +33,6 @@ git clone https://github.com/ChickenWhisky/Delta_SusAd_Task1.git
 - [X] permit.sh
 - [ ] updateDefaulter.sh
 - [ ] messAllocation.sh
-- [ ] feeBreakup.sh
+- [X] feeBreakup.sh
 ### Superuser Mode
 - [ ] signOut.sh
