@@ -1,16 +1,20 @@
 #!/bin/bash
 while read name rollno hostel room mess messpref
 do
-    sudo usermod -a -G $hostel $name
-    sudo usermod -a -G HAD $name
-    sudo usermod -a -G $name $hostel
-    sudo usermod -a -G $name HAD
-    sudo chmod g=rwx /home/$hostel/$room/$name
-    sudo setfacl -m "g:$name:rwx" /home/$hostel/$room/$name/userDetails.txt
-    sudo setfacl -m "g:$name:rwx" /home/$hostel/$room/$name/fees.txt
-    sudo setfacl -m "g:$name:r-x" /home/$hostel/$room/$name/messAllocation.sh
-    sudo setfacl -m "g:$name:r-x" /home/$hostel/$room/$name/feeBreakup.sh
-
+    if [ "$name"="name" ]
+    then
+        continue
+    else
+        sudo usermod -a -G $hostel $name
+        sudo usermod -a -G HAD $name
+        sudo usermod -a -G $name $hostel
+        sudo usermod -a -G $name HAD
+        sudo chmod g=rwx /home/$hostel/$room/$name
+        sudo setfacl -m "g:$name:rwx" /home/$hostel/$room/$name/userDetails.txt
+        sudo setfacl -m "g:$name:rwx" /home/$hostel/$room/$name/fees.txt
+        sudo setfacl -m "g:$name:r-x" /home/$hostel/$room/$name/messAllocation.sh
+        sudo setfacl -m "g:$name:r-x" /home/$hostel/$room/$name/feeBreakup.sh
+    fi
 done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 
 for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'

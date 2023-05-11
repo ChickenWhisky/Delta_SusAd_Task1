@@ -47,3 +47,4 @@ if [ $feeChecker=0 ]
     echo "$fee_type_paid "has been paid
 else
     echo This fee has already been payed please try another option
+fi
