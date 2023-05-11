@@ -12,14 +12,14 @@ read input
 
 #Some code to find the name and hostel of the student inorder to know which student is using the script 
 #is a sample student just for the sake of testing but CHANGE IT TO JUST USERDETAILS.TXT LATER
-while read line; do
-    if [ "$(awk '{print $1}')" = "name" ]
+while read Name rollno department Hostel year Room allocated_mess month mess_preference; do
+    if [ "$Name" = "name" ]
     then 
         continue
     else
-        name=$(echo "$line" | awk '{print $1}')
-        hostel=$(echo "$line" | awk '{print $3}')
-        room=$(echo "$line" | awk '{print $5}')
+        name=$Name
+        hostel=$Hostel
+        room=$Room
     fi
 done < /home/GarnetA/0/Jennee/userDetails.txt
 #done < userDetails.txt
