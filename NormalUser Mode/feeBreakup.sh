@@ -24,15 +24,15 @@ case $input in
     4) fee_type_paid="MessFee";amountPaid=20                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ;;
     esac
 
-lasTransaction=$(tail -n 1 /home/$hostel/$room/$name/fees.txt)
+lastTransaction=$(tail -n 1 /home/$hostel/$room/$name/fees.txt)
 feeChecker=0
-read=`echo ${lastTransaction##* }`
+read=$(echo ${lastTransaction##* })
 echo $read
 if [ "$fee_type_paid" = "$read" ]
 then    
     feeChecker=1
 fi
-if [ $feeChecker=0 ]
+if [ $feeChecker = 0 ]
     then
     current_value=$(head -n 1 "/home/$hostel/$room/$name/fees.txt" | sed 's/cumulativeAmountPaid=//')
     echo $amountPaid $current_value $(($current_value+$amountPaid))
