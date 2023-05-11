@@ -8,7 +8,7 @@ do
     sudo usermod -a -G $name HAD
     sudo chmod g=r-x /home/$hostel/$room/$name
     sudo setfacl -R -m "g:$name:rwx" /home/$hostel/$room/$name
-    sudo setfacl -R -m "g:$name:r-x" /home/$hostel/$room/$name/messAllocation.sh
+    sudo setfacl -R -m "g:$name:r-x" /home/$hostel/$room/$name
    
 done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 
