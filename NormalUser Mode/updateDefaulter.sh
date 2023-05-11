@@ -2,7 +2,7 @@
 
 
 user=$(whoami)
-if [ "$user"="HAD" ]
+if [ "$user" = "HAD" ]
 then
     countTo5=0
     while read name rollno hostel room mess messpref

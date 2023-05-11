@@ -28,7 +28,7 @@ lasTransaction=$(tail -n 1 /home/$hostel/$room/$name/fees.txt)
 feeChecker=0
 read=`echo ${lastTransaction##* }`
 
-if [ "$fee_type_paid"="$read" ]
+if [ "$fee_type_paid" = "$read" ]
 then    
     feeChecker=1
 fi

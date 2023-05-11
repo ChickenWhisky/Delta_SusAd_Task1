@@ -1,7 +1,7 @@
 #!/bin/bash
 while read name rollno hostel room mess messpref
 do
-    if [ "$name"="Name" ]
+    if [ "$name" = "Name" ]
     then
         continue
     else
