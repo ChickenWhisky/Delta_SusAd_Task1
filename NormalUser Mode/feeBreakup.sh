@@ -25,8 +25,8 @@ case $input in
     esac
 
 current_value=$(head -n 1 "/home/$hostel/$room/$name/fees.txt" | sed 's/cumulativeAmountPaid=//')
-
-new_value=$(($current_value+$increment))
+echo $current_value 
+new_value=$(($current_value + $increment))
 
 # Update the first line of the file with the new value
 sed -i "1s/cumulativeAmountPaid=.*/cumulativeAmountPaidl=$new_value/" "/home/$hostel/$room/$name/fees.txt"
