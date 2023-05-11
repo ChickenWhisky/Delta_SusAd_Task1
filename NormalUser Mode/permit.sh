@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while read -r name rollno hostel room mess messpref
+while read name rollno hostel room mess messpref
 do
     sudo usermod -a -G $hostel $name
     sudo usermod -a -G HAD $name
@@ -16,7 +16,8 @@ done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 
 for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'
 do
-    sudo setfacl -R -m "g:$i:r-x" /home/$i
+    sudo setfacl -m "g:$i:r-x" /home/$i/announcments.txt
+    sudo setfacl -m "g:$i:r-x" /home/$i/feeDefaulters.txt
     sudo chmod 750 /home/$i	
 
 done

@@ -12,17 +12,15 @@ read input
 
 #Some code to find the name and hostel of the student inorder to know which student is using the script 
 #is a sample student just for the sake of testing but CHANGE IT TO JUST USERDETAILS.TXT LATER
-while read Name rollno department Hostel year Room allocated_mess month mess_preference; do
-    if [ "$Name" = "name" ]
-    then 
-        continue
-    else
-        name=$Name
-        hostel=$Hostel
-        room=$Room
-    fi
-done < /home/GarnetA/0/Jennee/userDetails.txt
-#done < userDetails.txt
+user=$(whoami)
+while read Name rollno Hostel Room mess messpref
+do 
+    if [ "$user" = "$Name" ]
+    then
+            hostel=$Hostel
+            room=$Room
+            name=$Name
+done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
  
 case $input in
     1) fee_type_paid="TuitionFee";amountPaid=50 ;;
@@ -30,8 +28,6 @@ case $input in
     3) fee_type_paid="ServiceCharge";amountPaid=10 ;;
     4) fee_type_paid="MessFee";amountPaid=20                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ;;
     esac
-
-# /home/Delta_SusAd_Task1/NormalUser\ Mode/src/feeBreakup.txt 
 
 current_value=$(head -n 1 "/home/$hostel/$room/$name/fees.txt" | sed 's/cumulativeAmountPaid=//')
 
