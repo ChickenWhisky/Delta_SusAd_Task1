@@ -31,8 +31,8 @@ then
             continue
         fi
     fi
+    done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 else
     echo INVALID USER
 fi
 
-done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
