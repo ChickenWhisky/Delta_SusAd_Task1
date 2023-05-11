@@ -1,12 +1,5 @@
 #!/bin/bash
 
-#add all wardens to the primary groups of each student in their hostel and change each students group permissions to rwx(DONE)
-#add add HAD to the primary groups of each student and change those group permissions to rwx(DONE)
-#add all students their Wardens Primary group (DONE)
-#change permissions using ACL for announcment.txt,feeDefaulter.txt by allowing people of the warden group to access it(DONE)
-#add all students to HAD's group and give them access to mess.txt in HAD file using ACL(DONE)
-
-
 while read -r name rollno hostel room mess messpref
 do
     sudo usermod -a -G $hostel $name
@@ -18,8 +11,6 @@ do
     sudo setfacl -m "g:$name:rwx" /home/$hostel/$room/$name/fees.txt
     sudo setfacl -m "g:$name:r-x" /home/$hostel/$room/$name/messAllocation.sh
     sudo setfacl -m "g:$name:r-x" /home/$hostel/$room/$name/feeBreakup.sh
-
-
 done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 
 for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'
