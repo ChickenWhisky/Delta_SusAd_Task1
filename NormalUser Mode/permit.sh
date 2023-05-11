@@ -1,5 +1,4 @@
 #!/bin/bash
-
 while read name rollno hostel room mess messpref
 do
     sudo usermod -a -G $hostel $name

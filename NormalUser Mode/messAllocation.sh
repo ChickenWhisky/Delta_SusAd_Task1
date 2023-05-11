@@ -1,7 +1,8 @@
 #!/bin/bash
 
 user=$(whoami)
-if [ "$user" = "HAD" ];then
+if [ "$user" = "HAD" ]
+then
     checker='HAD'
 else
     while read  name rollno hostel room mess messpref
@@ -9,12 +10,15 @@ else
             if [ "$user" = "$name" ];then
                 checker='student'
                 break
+            else
+                continue
             fi    
         done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 fi
 
 ########################################  STUDENT SCRIPT  ##############################################
 declare -a capcityarray=(0 0 0)
+
 while read MESS capacity
 do        
 
