@@ -31,15 +31,17 @@ echo "${capcityarray[0]}"
 #
 if [ "$checker" = "student" ]; then
     echo "Mess Capacity"
-    while read MESS capacity; do
+    while read -r MESS capacity; do
         case $MESS in
         1)
             echo "$MESS $capacity"
             capcityarray[0]=$capacity
+            break
             ;;
         2)
             echo "$MESS $capacity"
             capcityarray[1]=$capacity
+            break
             ;;
         3)
             echo "$MESS $capacity"
