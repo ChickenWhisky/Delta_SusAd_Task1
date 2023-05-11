@@ -1,10 +1,5 @@
 #!/bin/bash
 
-#Write the scripts in two parts based on who is logging in 
-
-
-#This loop changes a variable based on who is logging in. If the user is a student then checker='student'.If HAD then checker='HAD'
-
 user=$(whoami)
 if [ "$user" = "HAD" ];then
     checker='HAD'
@@ -14,7 +9,6 @@ else
             if [ "$user" = "$name" ];then
                 checker='student'
                 break
-            #elif ["$(whomai)"="$hostel"];then;checker=1;break;
             fi    
         done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 fi
