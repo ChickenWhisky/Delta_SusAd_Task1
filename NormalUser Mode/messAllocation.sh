@@ -12,14 +12,14 @@ else
     while read  name rollno hostel room mess messpref
         do
             if [ "$user" = "$name" ];then
-                checker="student"
+                checker='student'
                 break
             #elif ["$(whomai)"="$hostel"];then;checker=1;break;
             fi    
         done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 fi
 
-################################  STUDENT SCRIPT  ##############################################
+########################################  STUDENT SCRIPT  ##############################################
 declare -a capcityarray=(0 0 0)
 while read MESS capacity
 do        

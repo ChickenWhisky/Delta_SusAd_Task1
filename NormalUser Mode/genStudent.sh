@@ -1,8 +1,5 @@
 #!/bin/bash
 
-
-#Functions
-
 getDepartment() {
 	local dep=$(cut --characters=2-3 <<< $rollno)
 	case $dep in
@@ -18,7 +15,6 @@ getDepartment() {
 		01) department="ARC";;
 		*) echo "InvalidDept"
 	esac
-
 }
 getYear() {
 	local Year=$(cut --characters=5-6 <<< $rollno)
@@ -37,7 +33,6 @@ addusers(){
 	sudo cp /home/Delta_SusAd_Task1/NormalUser\ Mode/messAllocation.sh /home/$hostel/$room/$name/feeBreakup.sh
 	echo 'cumulativeAmountPaid= 0' | sudo tee -a /home/$hostel/$room/$name/fees.txt >/dev/null
 	echo 'User '$name' has been generated'
-
 }
 addhostels(){
 	
@@ -45,83 +40,38 @@ addhostels(){
 	sudo cp /home/Delta_SusAd_Task1/NormalUser\ Mode/src/mess.txt /home/HAD/mess.txt
 	sudo cp /home/Delta_SusAd_Task1/NormalUser\ Mode/messAllocation.sh /home/HAD/messAllocation.sh
 
-
 	for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'
 	do  	
-	sudo useradd -m -d  /home/$i $i;echo "$i:$i" | sudo chpasswd
-	sudo touch /home/$i/announcments.txt
-	sudo touch /home/$i/feeDefaulters.txt
+		sudo useradd -m -d  /home/$i $i;echo "$i:$i" | sudo chpasswd
+		sudo touch /home/$i/announcments.txt
+		sudo touch /home/$i/feeDefaulters.txt
 	done
-
 }
-
 #Checks if hostel directories have been created
-
 if [ ! -d /home/GarnetA ]
 then
 
 	addhostels
-	
 	while read -r name rollno hostel room mess messpref
 	do
-	#Checks if the hostel is GarnetA then creates a new student user,its home directory,Userdetails.txt &fees.txt file
-
-	if [ "$hostel" = "GarnetA" ]
+	#Checks if the hostel is valid then creates a new student user,its home directory,Userdetails.txt &fees.txt file
+	if [ "$hostel" = "GarnetA" ] || [ "$hostel" = "GarnetB" ] || [ "$hostel" = "Opal" ] ||  [ "$hostel" = "Agate" ]
 		then
 		addusers
-
-#Checks if the hostel is GarnetB then creates a new student user,its home directory,Userdetails.txt &fees.txt file
-
-	elif [ "$hostel" = "GarnetB" ]
-		then
-		addusers
-		
-
-#Checks if the hostel is Opal then creates a new student user,its home directory,Userdetails.txt &fees.txt file
-
-	elif [ "$hostel" = "Opal" ]
-		then
-		addusers
-
-#Checks if the hostel is Agate then creates a new student user,its home directory,Userdetails.txt &fees.txt file
-
-	elif [ "$hostel" = "Agate" ]
-		then
-		addusers
-
+	else 
+		continue
 	fi	
 	done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
-
 #Does the same as above except in this case we are adding student info after creation of hostel warden accounts
-
 else
-	
-
 	while read -r name rollno hostel room mess messpref
-	do
-    	
-#Checks if the hostel is GarnetA then creates a new student user,its home directory,Userdetails.txt &fees.txt file
-
-	if [ "$hostel" = "GarnetA" ]
+	do    	
+ #Checks if the hostel valid then creates a new student user,its home directory,Userdetails.txt &fees.txt file
+	if [ "$hostel" = "GarnetA" ] || [ "$hostel" = "GarnetB" ] || [ "$hostel" = "Opal" ] ||  [ "$hostel" = "Agate" ]
 		then
 		addusers
-#Checks if the hostel is GarnetB then creates a new student user,its home directory,Userdetails.txt &fees.txt file
-
-	elif [ "$hostel" = "GarnetB" ]
-		then
-		addusers
-
-#Checks if the hostel is Opal then creates a new student user,its home directory,Userdetails.txt &fees.txt file
-
-	elif [ "$hostel" = "Opal" ]
-		then
-		addusers
-#Checks if the hostel is Agate then creates a new student user,its home directory,Userdetails.txt &fees.txt file
-
-	elif [ "$hostel" = "Agate" ]
-		then
-		addusers
-
-	fi	
+	else 
+		continue
+	fi		
 	done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 fi	

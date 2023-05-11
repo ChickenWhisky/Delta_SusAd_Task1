@@ -1,6 +1,6 @@
 # Delta SysAd Task-1
 
-Hello and welcome to my Delta Inductions Task 1 for the Sysad domain
+Hello and welcome to my Delta Inductions Task 1 for the Sysad domain.
 To begin open up the terminal and enter the following commands
 
 ## On Starting the server
