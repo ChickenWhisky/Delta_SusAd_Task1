@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#For now the directory to which the script is refering to for the location of fees.txt
-
-
 echo "Which of the following fees has been paid (1/2/3/4)  :"
 echo "1)Tuition Fee"
 echo "2)Hostel Rent"
@@ -10,8 +7,6 @@ echo "3)Service Charge"
 echo "4)Mess Fee"
 read input
 
-#Some code to find the name and hostel of the student inorder to know which student is using the script 
-#is a sample student just for the sake of testing but CHANGE IT TO JUST USERDETAILS.TXT LATER
 user=$(whoami)
 while read Name rollno Hostel Room mess messpref
 do 
