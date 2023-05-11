@@ -16,7 +16,6 @@ do
             room=$Room
             name=$Name
 done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
- 
 case $input in
     1) fee_type_paid="TuitionFee";amountPaid=50 ;;
     2) fee_type_paid="HostelRent";amountPaid=20 ;;
