@@ -33,6 +33,7 @@ then
     feeChecker=1
 fi
 if [ $feeChecker=0 ]
+    then
     current_value=$(head -n 1 "/home/$hostel/$room/$name/fees.txt" | sed 's/cumulativeAmountPaid=//')
     new_value=$(($current_value+$amountPaid))
 
