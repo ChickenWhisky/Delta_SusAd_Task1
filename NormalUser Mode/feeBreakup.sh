@@ -30,4 +30,4 @@ new_value=$(($current_value+$amountPaid))
 
 # Update the first line of the file with the new value
 sed -i "1s/cumulativeAmountPaid=.*/cumulativeAmountPaidl=$new_value/" "/home/$hostel/$room/$name/fees.txt"
-echo "$fee_type_paid $amountPaid" | sudo tee -a /home/$hostel/$room/$name/fees.txt 	
+echo "$fee_type_paid $amountPaid" | tee -a /home/$hostel/$room/$name/fees.txt 	
