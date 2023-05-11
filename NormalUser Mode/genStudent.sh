@@ -39,6 +39,7 @@ addhostels(){
 	sudo useradd -m -d /home/HAD HAD >/dev/null;echo "HAD:HAD" | sudo chpasswd
 	sudo cp /home/Delta_SusAd_Task1/NormalUser\ Mode/src/mess.txt /home/HAD/mess.txt
 	sudo cp /home/Delta_SusAd_Task1/NormalUser\ Mode/messAllocation.sh /home/HAD/messAllocation.sh
+	sudo cp /home/Delta_SusAd_Task1/NormalUser\ Mode/updateDefaulter.sh /home/HAD/updateDefaulter.sh
 
 	for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'
 	do  	
