@@ -28,7 +28,7 @@ current_value=$(head -n 1 "/home/$hostel/$room/$name/fees.txt" | sed 's/cumulati
 new_value=$(($current_value+$amountPaid))
 
 transactionTime=$(date '+%Y-%m-%d %H:%M:%S')
-epochtime=$(date --date"$transactionTime" +"%s") #for some reason the space infront of the '+' matters
+epochtime=$(date --date="$transactionTime" +"%s") #for some reason the space infront of the '+' matters
 
 # Update the first line of the file with the new value
 sed -i "1s/cumulativeAmountPaid=.*/cumulativeAmountPaidl=$new_value/" "/home/$hostel/$room/$name/fees.txt"
