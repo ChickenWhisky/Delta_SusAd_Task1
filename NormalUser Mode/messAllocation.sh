@@ -30,17 +30,17 @@ declare -a capcityarray=(0 0 0)
 #
 echo ${capcityarray[0]}
 #
-echo Mess"\t"Capacity
+echo "Mess Capacity"
 while read MESS capacity
 do        
     case $MESS in
-        1) echo $mess"\t"$capacity 
+        1) echo $mess  $capacity 
         capcityarray[0]=$capacity ;;
-        2) echo $mess"\t"$capacity 
+        2) echo $mess $capacity 
         capcityarray[1]=$capacity ;;
-        3) echo $mess"\t"$capacity 
+        3) echo $mess $capacity 
         capcityarray[2]=$capacity;break ;;
-        Mess) continue;;
+        "Mess") continue;;
         esac
 done > /home/HAD/mess.txt
 
@@ -50,24 +50,12 @@ echo ${capcityarray[1]}
 echo ${capcityarray[2]}
 #
 
-if [ "$checker" = "student" ]
-then
-    
-    while read mess capacity
-    do
-        echo $mess"\t"$capacity
-        
-        if [ $mess -eq 3 ];then
-            break
-        fi
-    done > /home/HAD/mess.txt
-   
-    echo Please enter your mess preference as a '3' digit numeral where each digit corresponds to the mess number
+echo Please enter your mess preference as a '3' digit numeral where each digit corresponds to the mess number
    
     while true
     do 
-        read messpreference
-        if [ "$messpreference" = "123" ] || [ "$messpreference" = "132" ] || [ "$messpreference" = "213" ] || [ "$messpreference" = "231" ] ||[ "$messpreference" = "321" ] || [ "$messpreference" = "312" ]
+        read Messpreference
+        if [ "$Messpreference" = "123" ] || [ "$Messpreference" = "132" ] || [ "$Messpreference" = "213" ] || [ "$Messpreference" = "231" ] ||[ "$Messpreference" = "321" ] || [ "$Messpreference" = "312" ]
         then
             break
         
@@ -75,7 +63,7 @@ then
             echo Invalid preference order. Please enter a valid preference order
         fi
     done
-    echo $rollno $messpreference >> /home/HAD/mess.txt
+    echo $rollno $Messpreference >> /home/HAD/mess.txt
 
 ################################  HAD SCRIPT  ##############################################
 
@@ -114,15 +102,15 @@ sed -n '6   ,$ p' /home/HAD/mess.txt | while read rollno pref
                
         if [ ${capcityarray[$((${prefarray[0]}-1))]} -g 0 ];then 
             echo "name rollno department hostel year room allocated_mess month mess_preference" >> "/home/$hostel/$room/$Name/userDetails.txt"             
-            echo "$name $rollno $department $hostel $year $room ${prefarray[0]} $month $mess_preference" >> "/home/$hostel/$room/$Name/userDetails.txt"
+            echo "$name $rollno $department $hostel $year $room ${prefarray[0]} $month $Messpreference" >> "/home/$hostel/$room/$Name/userDetails.txt"
             capcityarray[$(( ${prefarray[0]}-1 ))]=$((${capcityarray[$(( ${prefarray[0]}-1 ))]}-1))
         elif [ ${capcityarray[$((${prefarray[1]}-1))]} -g 0 ];then 
             echo "name rollno department hostel year room allocated_mess month mess_preference" >> "/home/$hostel/$room/$Name/userDetails.txt"             
-            echo "$name $rollno $department $hostel $year $room ${prefarray[1]}_mess $month $mess_preference " >> "/home/$hostel/$room/$Name/userDetails.txt"
+            echo "$name $rollno $department $hostel $year $room ${prefarray[1]}_mess $month $Messpreference " >> "/home/$hostel/$room/$Name/userDetails.txt"
             capcityarray[$((${prefarray[1]}-1))]=$((${capcityarray[$((${prefarray[1]}-1))]}-1))
         else 
             echo "name rollno department hostel year room allocated_mess month mess_preference" >> "/home/$hostel/$room/$Name/userDetails.txt"             
-            echo "$name $rollno $department $hostel $year $room ${prefarray[2]} $month $mess_preference" >> "/home/$hostel/$room/$Name/userDetails.txt"    
+            echo "$name $rollno $department $hostel $year $room ${prefarray[2]} $month $Messpreference" >> "/home/$hostel/$room/$Name/userDetails.txt"    
             capcityarray[$((${prefarray[2]}-1))]=$((${capcityarray[$((${prefarray[2]}-1))]}-1))
         fi
     done     

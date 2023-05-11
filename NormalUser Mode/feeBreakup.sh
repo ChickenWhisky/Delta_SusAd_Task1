@@ -41,7 +41,7 @@ if [ $feeChecker=0 ]
     epochtime=$(date --date="$transactionTime" +"%s") #for some reason the space infront of the '+' matters
 
     # Update the first line of the file with the new value
-    sed -i "1s/cumulativeAmountPaid=.*/cumulativeAmountPaidl=$new_value/" "/home/$hostel/$room/$name/fees.txt"
+    sed -i "1s/cumulativeAmountPaid=.*/cumulativeAmountPaidl= $new_value/" "/home/$hostel/$room/$name/fees.txt"
 
     #Appends the latest transaction into the file
     echo "$fee_type_paid $amountPaid $transactionTime $epochtime" | tee -a /home/$hostel/$room/$name/fees.txt >/dev/null
