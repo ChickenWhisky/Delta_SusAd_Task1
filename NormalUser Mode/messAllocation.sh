@@ -30,16 +30,19 @@ declare -a capcityarray=(0 0 0)
 #
 echo ${capcityarray[0]}
 #
-echo Mess"/t"Capacity
+echo Mess"\t"Capacity
 while read MESS capacity
 do        
     case $MESS in
-        1) echo $mess"/t"$capacity ;capcityarray[0]=$capacity ;;
-        2) echo $mess"/t"$capacity ;capcityarray[1]=$capacity ;;
-        3) echo $mess"/t"$capacity ;capcityarray[2]=$capacity;break ;;
+        1) echo $mess"\t"$capacity 
+        capcityarray[0]=$capacity ;;
+        2) echo $mess"\t"$capacity 
+        capcityarray[1]=$capacity ;;
+        3) echo $mess"\t"$capacity 
+        capcityarray[2]=$capacity;break ;;
         Mess) continue;;
         esac
-    done > /home/HAD/mess.txt
+done > /home/HAD/mess.txt
 
 #
 echo ${capcityarray[0]}
@@ -52,9 +55,9 @@ then
     
     while read mess capacity
     do
-        echo $mess"/t"$capacity
+        echo $mess"\t"$capacity
         
-        if [ "$mess" = "3" ];then
+        if [ $mess -eq 3 ];then
             break
         fi
     done > /home/HAD/mess.txt
