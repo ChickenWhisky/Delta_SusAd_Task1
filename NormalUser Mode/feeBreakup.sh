@@ -26,7 +26,7 @@ case $input in
 
 current_value=$(head -n 1 "/home/$hostel/$room/$name/fees.txt" | sed 's/cumulativeAmountPaid=//')
 echo $current_value 
-new_value=$(($current_value + $increment))
+new_value=$(($current_value+$amountPaid))
 
 # Update the first line of the file with the new value
 sed -i "1s/cumulativeAmountPaid=.*/cumulativeAmountPaidl=$new_value/" "/home/$hostel/$room/$name/fees.txt"
