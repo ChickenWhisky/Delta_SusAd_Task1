@@ -1,14 +1,17 @@
 #!/bin/bash
 
 user=$(whoami)
+echo $user
 if [ "$user" = "HAD" ]
 then
-    checker='HAD'
+    checker="HAD"
+    echo $checker
 else
     while read  name rollno hostel room mess messpref
         do
             if [ "$user" = "$name" ];then
-                checker='student'
+                checker="student"
+                echo $checker
                 break
             else
                 continue
@@ -18,6 +21,7 @@ fi
 
 ########################################  STUDENT SCRIPT  ##############################################
 declare -a capcityarray=(0 0 0)
+echo ${capcityarray[0]}
 
 while read MESS capacity
 do        
@@ -25,9 +29,8 @@ do
     case $MESS in
         1) capcityarray[0]=$capacity;;
         2) capcityarray[1]=$capacity;;
-        3) capcityarray[2]=$capacity;;
+        3) capcityarray[2]=$capacity;break;;
         Mess) continue;;
-        *) break;; 
         esac
     done > /home/HAD/mess.txt
 
