@@ -45,7 +45,7 @@ if [ "$checker" = "student" ]; then
         elif [ "$MESS" = "Mess" ]; then
             continue
         fi
-    done >/home/HAD/mess.txt
+    done < /home/HAD/mess.txt
 
     #
     echo "${capcityarray[0]}"
