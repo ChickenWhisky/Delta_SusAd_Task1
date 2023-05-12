@@ -32,24 +32,19 @@ echo "${capcityarray[0]}"
 if [ "$checker" = "student" ]; then
     echo "Mess Capacity"
     while read -r MESS capacity; do
-        case $MESS in
-        1)
+        if [ $MESS = 1 ]; then
             echo "$MESS $capacity"
             capcityarray[0]=$capacity
-            break
-            ;;
-        2)
+        elif [ $MESS = 2 ]; then
             echo "$MESS $capacity"
             capcityarray[1]=$capacity
-            break
-            ;;
-        3)
+        elif [ $MESS = 3 ]; then
             echo "$MESS $capacity"
             capcityarray[2]=$capacity
             break
-            ;;
-        "Mess") continue ;;
-        esac
+        elif [ "$MESS" = "Mess" ]; then
+            continue
+        fi
     done >/home/HAD/mess.txt
 
     #

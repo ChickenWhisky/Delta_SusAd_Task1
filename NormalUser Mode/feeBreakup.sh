@@ -8,35 +8,43 @@ echo "4)Mess Fee"
 read input
 
 user=$(whoami)
-while read Name rollno Hostel Room mess messpref
-do 
-    if [ "$user" = "$Name" ]
-    then
-            hostel=$Hostel
-            room=$Room
-            name=$Name
+while read Name rollno Hostel Room mess messpref; do
+    if [ "$user" = "$Name" ]; then
+        hostel=$Hostel
+        room=$Room
+        name=$Name
     fi
-done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
+done </home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 case $input in
-    1) fee_type_paid="TuitionFee";amountPaid=50 ;;
-    2) fee_type_paid="HostelRent";amountPaid=20 ;;
-    3) fee_type_paid="ServiceCharge";amountPaid=10 ;;
-    4) fee_type_paid="MessFee";amountPaid=20                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ;;
-    esac
+1)
+    fee_type_paid="TuitionFee"
+    amountPaid=50
+    ;;
+2)
+    fee_type_paid="HostelRent"
+    amountPaid=20
+    ;;
+3)
+    fee_type_paid="ServiceCharge"
+    amountPaid=10
+    ;;
+4)
+    fee_type_paid="MessFee"
+    amountPaid=20
+    ;;
+esac
 
 lastTransaction=$(tail -n 1 /home/$hostel/$room/$name/fees.txt)
 feeChecker=0
 read=$(echo ${lastTransaction##* })
 echo $read
-if [ "$fee_type_paid" = "$read" ]
-then    
+if [ "$fee_type_paid" = "$read" ]; then
     feeChecker=1
 fi
-if [ $feeChecker = 0 ]
-    then
+if [ $feeChecker = 0 ]; then
     current_value=$(head -n 1 "/home/$hostel/$room/$name/fees.txt" | sed 's/cumulativeAmountPaid=//')
-    echo $amountPaid $current_value $(($current_value+$amountPaid))
-    new_value=$(($current_value+$amountPaid))
+    echo $amountPaid $current_value $(($current_value + $amountPaid))
+    new_value=$(($current_value + $amountPaid))
 
     transactionTime=$(date '+%Y-%m-%d %H:%M:%S')
     epochtime=$(date --date="$transactionTime" +"%s") #for some reason the space infront of the '+' matters
@@ -47,6 +55,7 @@ if [ $feeChecker = 0 ]
     #Appends the latest transaction into the file
     echo "$fee_type_paid $amountPaid $transactionTime $epochtime" | tee -a /home/$hostel/$room/$name/fees.txt >/dev/null
     echo "$fee_type_paid "has successfully been paid
-else
+elif [ $feeChecker = 1 ]; then
     echo This fee has already been payed please try another option
+
 fi
