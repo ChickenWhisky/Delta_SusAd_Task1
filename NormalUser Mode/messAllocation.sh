@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ./functions.sh
+
 user=$(whoami)
 #
 echo "$user"
@@ -10,9 +12,16 @@ if [ "$user" = "HAD" ]; then
     echo $checker
     #
 else
-    while read name rollno hostel room mess messpref; do
-        if [ "$user" = "$name" ]; then
+    while read Name Rollno Hostel Room Mess messpref; do
+        if [ "$user" = "$Name" ]; then
             checker="student"
+            name=$Name
+            rollno=$Rollno
+            hostel=$Hostel
+            room=$Room
+            mess=$Mess
+            getDepartment
+            getYear
             #
             echo $checker
             #
@@ -65,6 +74,8 @@ if [ "$checker" = "student" ]; then
         fi
     done
     echo "$rollno $Messpreference" >>/home/HAD/mess.txt
+    echo 'name rollno department hostel year room allocated_mess month mess_preference' | tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null
+	echo "$name" "$rollno" "$department" "$hostel" "$year" "$room" "$mess"  "$(date +%b)" "$messpref" | tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null
 
 ################################  HAD SCRIPT  ##############################################
 
