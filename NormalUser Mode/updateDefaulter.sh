@@ -19,7 +19,7 @@ if [ "$user" = "HAD" ]; then
             echo "$name" | tee -a /home/$hostel/announcments.txt >/dev/null
 
         else
-            if [ $countTo5 -l 5 ]; then
+            if [ $countTo5 -le 4 ]; then
                 echo "$name" | tee -a /home/$hostel/feeDefaulters.txt >/dev/null
                 countTo5=$($countTo5+1)
 
