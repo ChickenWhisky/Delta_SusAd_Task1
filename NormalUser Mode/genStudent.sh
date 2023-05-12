@@ -23,7 +23,7 @@ else
 		getYear
 		sudo touch /home/$3/$4/$1/userDetails.txt
 		sudo touch /home/$3/$4/$1/fees.txt
-		echo 'name rollno department hostel year room allocated_mess month mess_preference' | sudo tee -a /home/$3/$4/$1/userDetails.txt >/dev/null
+		echo 'name rollno dep hostel year room allocated_mess month mess_preference' | sudo tee -a /home/$3/$4/$1/userDetails.txt >/dev/null
 		echo $1" "$2" "$department" "$3" "$year" "$4" "$5" - "$(date +%m)" "$6 | sudo tee -a /home/$3/$4/$1/userDetails.txt >/dev/null
 		sudo cp /home/Delta_SusAd_Task1/NormalUser\ Mode/messAllocation.sh /home/$3/$4/$1/messAllocation.sh
 		sudo cp /home/Delta_SusAd_Task1/NormalUser\ Mode/feeBreakup.sh /home/$3/$4/$1/feeBreakup.sh

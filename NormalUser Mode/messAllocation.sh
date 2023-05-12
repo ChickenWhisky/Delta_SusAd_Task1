@@ -58,8 +58,8 @@ if [ "$checker" = "student" ]; then
         fi
     done
     echo "$rollno $Messpreference" >>/home/HAD/mess.txt
-    echo 'name rollno department hostel year room allocated_mess month mess_preference' >/home/$hostel/$room/$name/userDetails.txt
-    echo "$name" "$rollno       " "$department   " "$hostel   " "$year   " "$room   " "$mess   " "$(date +%b)   " "$Messpreference" | tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null
+    echo 'name rollno dep hostel year room allocated_mess month mess_preference' >/home/$hostel/$room/$name/userDetails.txt
+    echo "$name" "$rollno" "$department   " "$hostel   " "$year   " "$room   " "$mess   " "$(date +%b)   " "$Messpreference" | tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null
 
 ################################  HAD SCRIPT  ##############################################
 
@@ -87,18 +87,18 @@ elif [ "$checker" = "HAD" ]; then
                 mess_preference=$MESS_PREFERENCE
             fi
 
-        done </home/$hostel/$room/$name/.userDetails.txt
+        done </home/$hostel/$room/$name/userDetails.txt
 
         if [ ${capcityarray[$((${prefarray[0]} - 1))]} -gt 0 ]; then
-            echo "name rollno department hostel year room allocated_mess month mess_preference" >>"/home/$hostel/$room/$Name/userDetails.txt"
+            echo "name rollno dep hostel year room allocated_mess month mess_preference" >>"/home/$hostel/$room/$Name/userDetails.txt"
             echo "$name $rollno $department $hostel $year $room ${prefarray[0]} $month $Messpreference" >>"/home/$hostel/$room/$Name/userDetails.txt"
             capcityarray[$((${prefarray[0]} - 1))]=$((${capcityarray[$((${prefarray[0]} - 1))]} - 1))
         elif [ ${capcityarray[$((${prefarray[1]} - 1))]} -gt 0 ]; then
-            echo "name rollno department hostel year room allocated_mess month mess_preference" >>"/home/$hostel/$room/$Name/userDetails.txt"
+            echo "name rollno dep hostel year room allocated_mess month mess_preference" >>"/home/$hostel/$room/$Name/userDetails.txt"
             echo "$name $rollno $department $hostel $year $room ${prefarray[1]}_mess $month $Messpreference " >>"/home/$hostel/$room/$Name/userDetails.txt"
             capcityarray[$((${prefarray[1]} - 1))]=$((${capcityarray[$((${prefarray[1]} - 1))]} - 1))
         else
-            echo "name rollno department hostel year room allocated_mess month mess_preference" >>"/home/$hostel/$room/$Name/userDetails.txt"
+            echo "name rollno dep hostel year room allocated_mess month mess_preference" >>"/home/$hostel/$room/$Name/userDetails.txt"
             echo "$name $rollno $department $hostel $year $room ${prefarray[2]} $month $Messpreference" >>"/home/$hostel/$room/$Name/userDetails.txt"
             capcityarray[$((${prefarray[2]} - 1))]=$((${capcityarray[$((${prefarray[2]} - 1))]} - 1))
         fi

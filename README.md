@@ -31,8 +31,8 @@ git clone https://github.com/ChickenWhisky/Delta_SusAd_Task1.git
 ### Normal Mode
 - [X] genStudent.sh
 - [X] permit.sh
-- [ ] updateDefaulter.sh
-- [ ] messAllocation.sh
+- [X] updateDefaulter.sh
+- [X] messAllocation.sh
 - [X] feeBreakup.sh
 ### Superuser Mode
 - [ ] signOut.sh

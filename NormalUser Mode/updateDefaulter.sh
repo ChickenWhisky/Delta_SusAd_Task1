@@ -9,7 +9,7 @@ if [ "$user" = "HAD" ]; then
         lastTransaction=$(tail -n 1 /home/$hostel/$room/$name/fees.txt)
         # Extract the number after "CummulativeAmount= "
         num=$(echo "$firstLine" | sed -n 's/^.*cumulativeAmountPaid= //p')
-        read=$(echo $line | awk '{print $NF}')
+        read=$(echo "$lastTransaction" | awk '{print $NF}')
         comparableTransaction=$(date --date="$read" +"%s")
         endOfSem="2023-06-10 00:00:00"
         endOfSemEpoch=$(date --date="$endOfSem" +"%s")
@@ -17,7 +17,7 @@ if [ "$user" = "HAD" ]; then
 
         # Check if the number is equal to 100
         if [ $num -eq 100 ] && [ $comparableTransaction -le $endOfSemEpoch ]; then
-            echo "$name" | sudo tee -a /home/$hostel/announcments.txt >/dev/null
+            echo "$name" | tee -a /home/$hostel/announcments.txt >/dev/null
 
         else
             if [ $countTo5 -lt 5 ]; then
