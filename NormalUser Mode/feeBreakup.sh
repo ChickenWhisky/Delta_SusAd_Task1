@@ -45,7 +45,6 @@ while read first second third fourth; do
 done </home/$hostel/$room/$name/fees.txt
 if [ $feeChecker = 0 ]; then
     current_value=$(head -n 1 "/home/$hostel/$room/$name/fees.txt" | sed 's/cumulativeAmountPaid=//')
-    echo $amountPaid $current_value $(($current_value + $amountPaid))
     new_value=$(($current_value + $amountPaid))
 
     transactionTime=$(date '+%Y-%m-%d %H:%M:%S')

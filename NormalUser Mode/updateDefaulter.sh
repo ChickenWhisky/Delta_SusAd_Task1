@@ -9,8 +9,7 @@ if [ "$user" = "HAD" ]; then
         lastTransaction=$(tail -n 1 /home/$hostel/$room/$name/fees.txt)
         # Extract the number after "CummulativeAmount= "
         num=$(echo "$firstLine" | sed -n 's/^.*cumulativeAmountPaid= //p')
-        read=$(echo "$lastTransaction" | awk '{print $NF}')
-        comparableTransaction=$(date --date="$read" +"%s")
+        comparableTransaction=$(echo "$lastTransaction" | awk '{print $NF}')
         endOfSem="2023-06-10 00:00:00"
         endOfSemEpoch=$(date --date="$endOfSem" +"%s")
         echo $endOfSemEpoch
