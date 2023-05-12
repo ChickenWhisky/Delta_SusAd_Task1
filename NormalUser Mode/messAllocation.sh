@@ -74,8 +74,8 @@ if [ "$checker" = "student" ]; then
         fi
     done
     echo "$rollno $Messpreference" >>/home/HAD/mess.txt
-    echo 'name rollno department hostel year room allocated_mess month mess_preference' | tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null
-	echo "$name" "$rollno" "$department" "$hostel" "$year" "$room" "$mess"  "$(date +%b)" "$messpref" | tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null
+    echo 'name rollno department hostel year room allocated_mess month mess_preference' >> /home/$hostel/$room/$name/userDetails.txt >/dev/null
+	echo "$name" "$rollno" "$department" "$hostel" "$year" "$room" "$mess"  "$(date +%b)" "$Messpreference" | tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null
 
 ################################  HAD SCRIPT  ##############################################
 
