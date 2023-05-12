@@ -9,9 +9,10 @@ if [ "$user" = "HAD" ]; then
         lastTransaction=$(tail -n 1 /home/$hostel/$room/$name/fees.txt)
         # Extract the number after "CummulativeAmount= "
         num=$(echo "$firstLine" | sed -n 's/^.*cumulativeAmountPaid= //p')
-        read=$(echo $lastTransaction | awk -v N=3 '{print $N}' >/dev/null)
+        read=$(echo $line | awk '{print $NF}')
+        comparableTransaction=$(date --date="$read" +"%s")
         endOfSem=$(2023-06-10 00:00:00)
-        endOfSemEpoch=$(date --date="$current" +"%s")
+        endOfSemEpoch=$(date --date="$endOfSem" +"%s")
 
         # Check if the number is equal to 100
         if [ $num -eq 100 ] && [ $comparableTransaction -le $endOfSemEpoch ]; then
@@ -26,7 +27,7 @@ if [ "$user" = "HAD" ]; then
                 continue
             fi
         fi
-    done </home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
+    done < /home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
 elif [ ! "$user" = "HAD" ]; then
     echo INVALID USER
 fi
