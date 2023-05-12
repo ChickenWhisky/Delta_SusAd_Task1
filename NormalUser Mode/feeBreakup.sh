@@ -34,13 +34,15 @@ case $input in
     ;;
 esac
 
-lastTransaction=$(tail -n 1 /home/$hostel/$room/$name/fees.txt)
 feeChecker=0
-read=$(echo "$lastTransaction" | awk '{print "$2"}')
-echo $read
-if [ "$fee_type_paid" = "$read" ]; then
-    feeChecker=1
-fi
+while read first second third fourth; do
+    if [ "$fee_type_paid" = "$first" ]; then
+        feeChecker=1
+        break
+    else
+        continue
+    fi
+done <home/$hostel/$room/$name/fees.txt
 if [ $feeChecker = 0 ]; then
     current_value=$(head -n 1 "/home/$hostel/$room/$name/fees.txt" | sed 's/cumulativeAmountPaid=//')
     echo $amountPaid $current_value $(($current_value + $amountPaid))

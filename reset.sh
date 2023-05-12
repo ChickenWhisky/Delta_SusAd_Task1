@@ -15,5 +15,6 @@ done
 while read name rollno hostel room mess messpref
 do
     sudo userdel $name
+    sudo groupdel $name
 
 done < /home/thomas/Desktop/Sysad/Task1/NormalUser\ Mode/src/studentDetails.txt
