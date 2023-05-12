@@ -12,7 +12,6 @@ if [ "$user" = "HAD" ]; then
         comparableTransaction=$(echo "$lastTransaction" | awk '{print $NF}')
         endOfSem="2023-06-10 00:00:00"
         endOfSemEpoch=$(date --date="$endOfSem" +"%s")
-        echo $endOfSemEpoch
 
         # Check if the number is equal to 100
         if [ $num -eq 100 ] && [ $comparableTransaction -le $endOfSemEpoch ]; then

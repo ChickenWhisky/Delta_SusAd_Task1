@@ -89,14 +89,19 @@ elif [ "$checker" = "HAD" ]; then
 
         done </home/$hostel/$room/$name/userDetails.txt
 
+    # $((${prefarray[0]} - 1)) will give us the index of the users first preference value in capacityarray
         if [ ${capcityarray[$((${prefarray[0]} - 1))]} -gt 0 ]; then
             echo "name rollno dep hostel year room allocated_mess month mess_preference" >"/home/$hostel/$room/$Name/userDetails.txt"
             echo "$name $rollno $department $hostel $year $room ${prefarray[0]} $month $Messpreference" >>"/home/$hostel/$room/$Name/userDetails.txt"
             capcityarray[$((${prefarray[0]} - 1))]=$((${capcityarray[$((${prefarray[0]} - 1))]} - 1))
+    # $((${prefarray[1]} - 1)) will give us the index of the users 2nd preference value in capacityarray
+
         elif [ ${capcityarray[$((${prefarray[1]} - 1))]} -gt 0 ]; then
             echo "name rollno dep hostel year room allocated_mess month mess_preference" >"/home/$hostel/$room/$Name/userDetails.txt"
             echo "$name $rollno $department $hostel $year $room ${prefarray[1]}_mess $month $Messpreference " >>"/home/$hostel/$room/$Name/userDetails.txt"
             capcityarray[$((${prefarray[1]} - 1))]=$((${capcityarray[$((${prefarray[1]} - 1))]} - 1))
+
+    # $((${prefarray[2]} - 1)) will give us the index of the users last preference value in capacityarray
         else
             echo "name rollno dep hostel year room allocated_mess month mess_preference" >"/home/$hostel/$room/$Name/userDetails.txt"
             echo "$name $rollno $department $hostel $year $room ${prefarray[2]} $month $Messpreference" >>"/home/$hostel/$room/$Name/userDetails.txt"
