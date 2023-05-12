@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./functions.sh
+source /home/Delta/NormalUser\ Mode/src/functions.sh
 #Checks if hostel directories have been created
 if [ ! -d "/home/GarnetA" ]; then
 

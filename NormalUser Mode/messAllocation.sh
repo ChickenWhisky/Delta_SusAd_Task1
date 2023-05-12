@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./functions.sh
+source /home/Delta/NormalUser\ Mode/src/functions.sh
 
 user=$(whoami)
 #
