@@ -94,11 +94,11 @@ elif [ "$checker" = "HAD" ]; then
 
         done </home/$hostel/$room/$name/.userDetails.txt
 
-        if [ ${capcityarray[$((${prefarray[0]} - 1))]} -g 0 ]; then
+        if [ ${capcityarray[$((${prefarray[0]} - 1))]} -gt 0 ]; then
             echo "name rollno department hostel year room allocated_mess month mess_preference" >>"/home/$hostel/$room/$Name/userDetails.txt"
             echo "$name $rollno $department $hostel $year $room ${prefarray[0]} $month $Messpreference" >>"/home/$hostel/$room/$Name/userDetails.txt"
             capcityarray[$((${prefarray[0]} - 1))]=$((${capcityarray[$((${prefarray[0]} - 1))]} - 1))
-        elif [ ${capcityarray[$((${prefarray[1]} - 1))]} -g 0 ]; then
+        elif [ ${capcityarray[$((${prefarray[1]} - 1))]} -gt 0 ]; then
             echo "name rollno department hostel year room allocated_mess month mess_preference" >>"/home/$hostel/$room/$Name/userDetails.txt"
             echo "$name $rollno $department $hostel $year $room ${prefarray[1]}_mess $month $Messpreference " >>"/home/$hostel/$room/$Name/userDetails.txt"
             capcityarray[$((${prefarray[1]} - 1))]=$((${capcityarray[$((${prefarray[1]} - 1))]} - 1))

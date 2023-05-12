@@ -11,15 +11,16 @@ if [ "$user" = "HAD" ]; then
         num=$(echo "$firstLine" | sed -n 's/^.*cumulativeAmountPaid= //p')
         read=$(echo $line | awk '{print $NF}')
         comparableTransaction=$(date --date="$read" +"%s")
-        endOfSem=$(2023-06-10 00:00:00)
+        endOfSem="2023-06-10 00:00:00"
         endOfSemEpoch=$(date --date="$endOfSem" +"%s")
+        echo$(endOfSemEpoch)
 
         # Check if the number is equal to 100
         if [ $num -eq 100 ] && [ $comparableTransaction -le $endOfSemEpoch ]; then
             echo "$name" | tee -a /home/$hostel/announcments.txt >/dev/null
 
         else
-            if [ $countTo5 -le 4 ]; then
+            if [ $countTo5 -lt 5 ]; then
                 echo "$name" | tee -a /home/$hostel/feeDefaulters.txt >/dev/null
                 countTo5=$($countTo5+1)
 
