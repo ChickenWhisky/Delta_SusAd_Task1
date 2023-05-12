@@ -1,4 +1,11 @@
 #!/bin/bash
+
+# Add all wardens to the primary groups of each student in their hostel and change each students group permissions to rwx
+# Add add HAD to the primary groups of each student to rwx
+# Add all students to their hostel wardens primary group
+# Change permissions using ACL for announcment.txt,feeDefaulter.txt by allowing people of a the hostel warden group to acces it
+# Add all students to a student group and give them access to mess.txt in HAD file using ACL
+
 while read name rollno hostel room mess messpref; do
     if [ "$name" = "Name" ]; then
         continue
