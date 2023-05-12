@@ -36,7 +36,7 @@ esac
 
 lastTransaction=$(tail -n 1 /home/$hostel/$room/$name/fees.txt)
 feeChecker=0
-read=$(echo ${lastTransaction##* })
+read=$(echo $lastTransaction | awk -v N=2 '{print $N}' >/dev/null)
 echo $read
 if [ "$fee_type_paid" = "$read" ]; then
     feeChecker=1
