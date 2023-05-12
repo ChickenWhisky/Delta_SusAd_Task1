@@ -1,16 +1,9 @@
 #!/bin/bash
 
 source /home/Delta_SusAd_Task1/NormalUser\ Mode/functions.sh
-
 user=$(whoami)
-#
-echo "$user"
-#
 if [ "$user" = "HAD" ]; then
     checker="HAD"
-    #
-    echo $checker
-    #
 else
     while read Name Rollno Hostel Room Mess messpref; do
         if [ "$user" = "$Name" ]; then
@@ -34,10 +27,7 @@ fi
 
 ########################################  STUDENT SCRIPT  ##############################################
 declare -a capcityarray=(0 0 0)
-#
-echo "$checker"
-echo "${capcityarray[0]}"
-#
+
 if [ "$checker" = "student" ]; then
     echo "Mess Capacity"
     while read -r MESS capacity; do
@@ -54,13 +44,7 @@ if [ "$checker" = "student" ]; then
         elif [ "$MESS" = "Mess" ]; then
             continue
         fi
-    done < /home/HAD/mess.txt
-
-    #
-    echo "${capcityarray[0]}"
-    echo "${capcityarray[1]}"
-    echo "${capcityarray[2]}"
-    #
+    done </home/HAD/mess.txt
 
     echo Please enter your mess preference as a '3' digit numeral where each digit corresponds to the mess number
 
@@ -74,8 +58,8 @@ if [ "$checker" = "student" ]; then
         fi
     done
     echo "$rollno $Messpreference" >>/home/HAD/mess.txt
-    echo 'name rollno department hostel year room allocated_mess month mess_preference' > /home/$hostel/$room/$name/userDetails.txt >/dev/null
-	echo "$name" "$rollno       " "$department   " "$hostel   " "$year   " "$room   " "$mess   "  "$(date +%b)   " "$Messpreference" | tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null
+    echo 'name rollno department hostel year room allocated_mess month mess_preference' >/home/$hostel/$room/$name/userDetails.txt
+    echo "$name" "$rollno       " "$department   " "$hostel   " "$year   " "$room   " "$mess   " "$(date +%b)   " "$Messpreference" | tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null
 
 ################################  HAD SCRIPT  ##############################################
 
