@@ -3,6 +3,7 @@
 # Imports required functions from the function.sh file
 source /home/Delta_SusAd_Task1/SuperUser\ Mode/functions.sh
 
+
 # Checks if hostel directories have been created and creates remaining directories based on that
 if [ ! -d "/home/GarnetA" ]; then
 

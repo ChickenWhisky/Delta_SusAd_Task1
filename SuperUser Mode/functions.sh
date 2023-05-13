@@ -40,6 +40,7 @@ addusers() {
     sudo touch /home/$hostel/$room/$name/signOutApproval.txt
 
     # Required data is appended into the appropraite files in the students directory
+    echo 'Return_date Approval_status' | sudo tee -a /home/$hostel/$room/$name/signOutApproval.txt >/dev/null
     echo 'name rollno department hostel year room allocated_mess month mess_preference' | sudo tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null
     echo "$name" "$rollno" "$department" "$hostel" "$year" "$room" "$mess" "$(date +%b)" "$messpref" | sudo tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null
     echo 'cumulativeAmountPaid= 0' | sudo tee -a /home/$hostel/$room/$name/fees.txt >/dev/null
@@ -77,6 +78,9 @@ addhostels() {
         sudo touch /home/$i/signOutHistory.txt
         sudo touch /home/$i/signOutRequests.txt
         sudo touch /home/$i/signOutDefaulters.txt
+        echo 'Name Room RollNumber ReturnDate' | sudo tee -a /home/$i/signOutApproval.txt >/dev/null
+        echo 'Name Room RollNumber ReturnDate' | sudo tee -a /home/$i/signOutHistory.txt >/dev/null
+        echo 'Name dateReturned approvedReturnDate' | sudo tee -a /home/$i/signOutApproval.txt >/dev/null
 
     done
 }

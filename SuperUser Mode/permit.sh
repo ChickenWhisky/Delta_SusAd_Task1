@@ -25,6 +25,8 @@ done </home/Delta_SusAd_Task1/SuperUser\ Mode/src/studentDetails.txt
 for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'; do
 
     sudo chmod 700 /home/$i/signOutDefaulters.txt
+    sudo chmod 700 /home/$i/signOutHistory.txt
+    sudo chmod 700 /home/$i/signOutRequests.txt
 
     sudo setfacl -m "g:$i:r-x" /home/$i/announcements.txt
     sudo setfacl -m "g:$i:r-x" /home/$i/signOutDefaulters.txt

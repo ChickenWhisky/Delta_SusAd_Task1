@@ -3,6 +3,16 @@
 # Imports required functions from the function.sh file
 source /home/Delta_SusAd_Task1/SuperUser\ Mode/functions.sh
 
+#Function for checking if the student has logged in before the given return date
+signOutDefaulterChecker() {
+    lastlogin=$(last -1 $name | awk '{print $5 " " $6}')
+    reformatted_date=$(date -d "$date" +"%m%d")
+    reformatted_lastlogin=$(date -d "$lastlogin" +"%m%d")
+
+    if [ $lastlogin -gt $reformatted_date ];then
+        echo "$name $lastlogin $date" >> "/home/$user/signOutDefaulters.txt"
+    fi
+}
 # Checks if the User is a Warden or a Student
 user=$(whoami)
 if [ "$user" = "GarentA" ] || [ "$user" = "GarentB" ] || [ "$user" = "Opal" ] || [ "$user" = "Agate" ]; then
@@ -42,15 +52,29 @@ if [ "$checker" = "student" ]; then
         fi
     done
 
-    echo "$rollno $returnDate" >>"/home/$hostel/signOutRequests.txt" >/dev/nul
+    echo "$name $room $rollno $returnDate" >>"/home/$hostel/signOutRequests.txt" >/dev/nul
 
 
 
 ################################## HAD SCRIPT ###############################################
 
 elif [ "$checker" = "Warden" ];then
-    
+    while read name room rollno date;do
+        printf "$name\t$rollno\t$date"
+        echo Would you like to approve this particular signout request?[y/n]
+        read approval
+        if [ "$approval" = "y" ];then
+            echo "$name $rollno $date" >> "/home/$user/signOutHistory.txt"
+            echo "$date approved" >> "/home/$user/$room/$name/signOutApproval.txt"
+            formatted_date=$(date -d "$date" +"%y%m%d")
+            reformatted_date=$(date -d "$date" +"%m%d")
+            echo "signOutDefaulterChecker" | at $formatted_date
 
 
+        else
+            echo "$date declined" >> "/home/$user/$room/$name/signOutApproval.txt"
+
+        fi
+    done < /home/$user/signOutRequests.txt
 
 fi
