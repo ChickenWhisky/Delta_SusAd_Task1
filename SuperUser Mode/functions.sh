@@ -37,7 +37,8 @@ addusers() {
     # Rerquired files are created in the students directory 
     sudo touch /home/$hostel/$room/$name/userDetails.txt
     sudo touch /home/$hostel/$room/$name/fees.txt
-    
+    sudo touch /home/$hostel/$room/$name/signOutApproval.txt
+
     # Required data is appended into the appropraite files in the students directory
     echo 'name rollno department hostel year room allocated_mess month mess_preference' | sudo tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null
     echo "$name" "$rollno" "$department" "$hostel" "$year" "$room" "$mess" "$(date +%b)" "$messpref" | sudo tee -a /home/$hostel/$room/$name/userDetails.txt >/dev/null
@@ -46,7 +47,12 @@ addusers() {
     # Copying in other scripts that students will run for fee payment and submitting mess preferences 
     sudo cp /home/Delta_SusAd_Task1/SuperUser\ Mode/messAllocation.sh /home/$hostel/$room/$name/messAllocation.sh
     sudo cp /home/Delta_SusAd_Task1/SuperUser\ Mode/feeBreakup.sh /home/$hostel/$room/$name/feeBreakup.sh
-    
+
+    # Adding a link for announcements.txt and feeDefaulter.txt
+    sudo ln -s "/home/$hostel/announcements.txt" "/home/$hostel/$room/$name/Announcement"
+    sudo ln -s "/home/$hostel/feeDefaulters.txt" "/home/$hostel/$room/$name/Fee Defaulters"
+
+
     # A message is displayed on the student being generated
     echo "User $name has been generated"
 }
@@ -66,7 +72,9 @@ addhostels() {
     for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'; do    
         sudo useradd -m -d /home/$i $i
         echo "$i:$i" | sudo chpasswd
-        sudo touch /home/$i/announcments.txt
+        sudo touch /home/$i/announcements.txt
         sudo touch /home/$i/feeDefaulters.txt
+        sudo touch /home/$i/signOutHistory.txt
+        sudo touch /home/$i/signOutRequests.txt
     done
 }
