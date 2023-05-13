@@ -76,5 +76,7 @@ addhostels() {
         sudo touch /home/$i/feeDefaulters.txt
         sudo touch /home/$i/signOutHistory.txt
         sudo touch /home/$i/signOutRequests.txt
+        sudo touch /home/$i/signOutDefaulters.txt
+
     done
 }

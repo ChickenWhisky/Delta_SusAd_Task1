@@ -30,8 +30,27 @@ fi
 if [ "$checker" = "student" ]; then
 
     printf "\n                   SIGN OUT FORM \n\n"
-    echo "Please enter the date you would like to return to the campus (!!Please enter the date in a yyyy-mm-dd format!!) :" 
+    echo "Please enter the date you would like to return to the campus (!!Please enter the date in a yyyy-mm-dd format!!) :"
+
+    while true; do
+        read returnDate
+        if [[ $input =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+            break
+        else
+            echo Please enter a valid date
+            continue
+        fi
+    done
+
+    echo "$rollno $returnDate" >>"/home/$hostel/signOutRequests.txt" >/dev/nul
+
+
+
+################################## HAD SCRIPT ###############################################
+
+elif [ "$checker" = "Warden" ];then
     
+
 
 
 fi
