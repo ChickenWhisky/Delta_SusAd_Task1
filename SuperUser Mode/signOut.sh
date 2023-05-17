@@ -52,7 +52,7 @@ if [ "$checker" = "student" ]; then
         fi
     done
 
-    echo "$name $room $rollno $returnDate" >>"/home/$hostel/signOutRequests.txt" >/dev/nul
+    echo "$name $room $rollno $returnDate" >> "/home/$hostel/signOutRequests.txt"
 
 
 

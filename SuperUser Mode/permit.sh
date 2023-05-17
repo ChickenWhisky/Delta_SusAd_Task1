@@ -20,6 +20,7 @@ while read name rollno hostel room mess messpref; do
         sudo setfacl -m "g:$name:r-x" /home/$hostel/$room/$name/messAllocation.sh
         sudo setfacl -m "g:$name:r-x" /home/$hostel/$room/$name/feeBreakup.sh
     fi
+
 done </home/Delta_SusAd_Task1/SuperUser\ Mode/src/studentDetails.txt
 
 for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'; do
@@ -40,7 +41,7 @@ for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'; do
     sudo setfacl -m "g:$i:r-x" /home/$i/signOutDefaulters.txt
     sudo chmod 700 /home/$i/signOutHistory.txt
     sudo chmod 700 /home/$i/signOutRequests.txt
-    sudo chmod 700 /home/$i
+    sudo chmod 750 /home/$i
     sudo usermod -a -G $i HAD
 
 done

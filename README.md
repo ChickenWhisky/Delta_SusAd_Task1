@@ -7,9 +7,11 @@ To begin open up the terminal and enter the following commands
 
 * Open the terminal and enter the following block of code
 ```
-apt update
-apt -y upgrade
-apt install sudo acl wget git
+sudo apt update
+sudo apt -y upgrade
+sudo apt install sudo acl wget git
+sudo apt-get install at
+
 ```
 * If the user HAD hasnt been created then do the following
 ```
