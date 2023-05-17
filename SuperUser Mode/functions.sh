@@ -48,6 +48,7 @@ addusers() {
     # Copying in other scripts that students will run for fee payment and submitting mess preferences 
     sudo cp /home/Delta_SusAd_Task1/SuperUser\ Mode/messAllocation.sh /home/$hostel/$room/$name/messAllocation.sh
     sudo cp /home/Delta_SusAd_Task1/SuperUser\ Mode/feeBreakup.sh /home/$hostel/$room/$name/feeBreakup.sh
+    sudo cp /home/Delta_SusAd_Task1/SuperUser\ Mode/signOut.sh /home/$hostel/$room/$name/signOut.sh
 
     # Adding a link for announcements.txt and feeDefaulter.txt
     sudo ln -s "/home/$hostel/announcements.txt" "/home/$hostel/$room/$name/Announcement"

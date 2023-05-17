@@ -21,12 +21,11 @@ if [ "$user" = "HAD" ]; then
 
         # Check if the cummulativeAmmountPaid is equal to 100000
         if [ $num -eq 100000 ] && [ $comparableTransaction -le $endOfSemEpoch ]; then
-            echo "$name" | tee -a /home/$hostel/announcements.txt >/dev/null
-            
+            echo "$name" | tee -a /home/$hostel/announcements.txt 
         else
             if [ $countTo5 -lt 5 ]; then
-                echo "$name" | tee -a /home/$hostel/feeDefaulters.txt >/dev/null
-                countTo5=$($countTo5+1)
+                echo "$name" | tee -a /home/$hostel/feeDefaulters.txt 
+                countTo5=$(($countTo5+1))
 
             else
                 continue
