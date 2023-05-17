@@ -44,7 +44,7 @@ if [ "$checker" = "student" ]; then
 
     while true; do
         read returnDate
-        if [[ $input =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+        if [[ $returnDate =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
             break
         else
             echo Please enter a valid date
