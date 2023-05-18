@@ -29,11 +29,12 @@ for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'; do
     sudo chmod 750 /home/$i
     sudo chmod 750 /home/$i/signOutDefaulters.txt
     sudo chmod 700 /home/$i/signOutHistory.txt
-    sudo chmod 770 /home/$i/signOutRequests.txt
+    sudo chmod 700 /home/$i/signOutRequests.txt
 
     sudo setfacl -m "g:$i:r-x" /home/$i/announcements.txt
     sudo setfacl -m "g:$i:r-x" /home/$i/signOutDefaulters.txt
     sudo setfacl -m "g:$i:r-x" /home/$i/feeDefaulters.txt
+    sudo setfacl -m "g:$i:-w-" /home/$i/signOutRequests.txt
 
     sudo setfacl -m "u:HAD:rwx" /home/$i/signOutDefaulters.txt
     sudo setfacl -m "u:HAD:rwx" /home/$i/announcements.txt
