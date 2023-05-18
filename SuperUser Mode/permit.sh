@@ -20,6 +20,8 @@ while read name rollno hostel room mess messpref; do
         sudo setfacl -m "g:$name:r-x" /home/$hostel/$room/$name/messAllocation.sh
         sudo setfacl -m "g:$name:r-x" /home/$hostel/$room/$name/signOut.sh
         sudo setfacl -m "g:$name:r-x" /home/$hostel/$room/$name/feeBreakup.sh
+        sudo setfacl -m "g:$name:r-x" /home/$hostel/$room/$name/signOutApproval.txt
+
     fi
 
 done </home/Delta_SusAd_Task1/SuperUser\ Mode/src/studentDetails.txt

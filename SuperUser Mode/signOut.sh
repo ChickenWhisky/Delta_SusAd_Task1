@@ -61,7 +61,9 @@ if [ "$checker" = "student" ]; then
 elif [ "$checker" = "Warden" ];then
     while read name room rollno date;do
         printf "$name\t$rollno\t$date"
+        echo "\n"
         echo Would you like to approve this particular signout request?[y/n]
+        echo "\n"
         read approval
         if [ "$approval" = "y" ];then
             echo "$name $rollno $date" >> "/home/$user/signOutHistory.txt"
