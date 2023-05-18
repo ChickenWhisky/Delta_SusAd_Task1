@@ -43,11 +43,11 @@ fi
 if [ "$checker" = "student" ]; then
 
     printf "\n                   SIGN OUT FORM \n\n"
-    echo "Please enter the date you would like to return to the campus (!!Please enter the date in a yyyy-mm-dd format!!) :"
+    echo "Please enter the date you would like to return to the campus (!!Please enter the date in a yy-mm-dd format!!) :"
 
     while true; do
         read returnDate
-        if [[ $returnDate =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+        if [[ $returnDate =~ ^[0-9]{2}-[0-9]{2}-[0-9]{2}$ ]]; then
             break
         else
             echo Please enter a valid date
@@ -72,9 +72,9 @@ elif [ "$checker" = "Warden" ];then
         if [ "$approval" = "y" ];then
             echo "$name $rollno $date" >> "/home/$user/signOutHistory.txt"
             echo "$date approved" >> "/home/$user/$room/$name/signOutApproval.txt"
-            formatted_date=$(date -d "$date" +"%y%m%d")
+            formatted_date=$(date -d "$date" +"%m%d%y")
             reformatted_date=$(date -d "$date" +"%m%d")
-            echo "signOutDefaulterChecker" | at $formatted_date
+            echo "signOutDefaulterChecker" | at 23:59 $formatted_date
 
 
         else
