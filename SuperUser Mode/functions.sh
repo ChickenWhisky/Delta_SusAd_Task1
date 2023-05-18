@@ -70,6 +70,7 @@ addhostels() {
     sudo cp /home/Delta_SusAd_Task1/SuperUser\ Mode/messAllocation.sh /home/HAD/messAllocation.sh
     sudo cp /home/Delta_SusAd_Task1/SuperUser\ Mode/updateDefaulter.sh /home/HAD/updateDefaulter.sh
 
+
     # Hostel warden users are created and the required files are created in them and their passwords are changed to their hostel name
     for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'; do    
         sudo useradd -m -d /home/$i $i
@@ -79,9 +80,10 @@ addhostels() {
         sudo touch /home/$i/signOutHistory.txt
         sudo touch /home/$i/signOutRequests.txt
         sudo touch /home/$i/signOutDefaulters.txt
+        sudo cp /home/Delta_SusAd_Task1/SuperUser\ Mode/signOut.sh /home/$i/signOut.sh
         echo 'Name Room RollNumber ReturnDate' | sudo tee -a /home/$i/signOutApproval.txt >/dev/null
         echo 'Name Room RollNumber ReturnDate' | sudo tee -a /home/$i/signOutHistory.txt >/dev/null
-        echo 'Name dateReturned approvedReturnDate' | sudo tee -a /home/$i/signOutApproval.txt >/dev/null
+        echo 'Name dateReturned approvedReturnDate' | sudo tee -a /home/$i/signOutDefaulters.txt >/dev/null
 
     done
 }

@@ -15,7 +15,7 @@ signOutDefaulterChecker() {
 }
 # Checks if the User is a Warden or a Student
 user=$(whoami)
-if [ "$user" = "GarentA" ] || [ "$user" = "GarentB" ] || [ "$user" = "Opal" ] || [ "$user" = "Agate" ]; then
+if [ "$user" = "GarnetA" ] || [ "$user" = "GarnetB" ] || [ "$user" = "Opal" ] || [ "$user" = "Agate" ]; then
     checker="Warden"
 else
     while read Name Rollno Hostel Room Mess messpref; do
@@ -53,6 +53,7 @@ if [ "$checker" = "student" ]; then
     done
 
     echo "$name $room $rollno $returnDate" >> "/home/$hostel/signOutRequests.txt"
+    echo "$returnDate -" >> "/home/$hostel/signOutRequests.txt"
 
 
 
