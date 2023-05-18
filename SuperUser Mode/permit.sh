@@ -26,9 +26,10 @@ done </home/Delta_SusAd_Task1/SuperUser\ Mode/src/studentDetails.txt
 
 for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'; do
 
-    sudo chmod 700 /home/$i/signOutDefaulters.txt
+    sudo chmod 750 /home/$i
+    sudo chmod 750 /home/$i/signOutDefaulters.txt
     sudo chmod 700 /home/$i/signOutHistory.txt
-    sudo chmod 720 /home/$i/signOutRequests.txt
+    sudo chmod 770 /home/$i/signOutRequests.txt
 
     sudo setfacl -m "g:$i:r-x" /home/$i/announcements.txt
     sudo setfacl -m "g:$i:r-x" /home/$i/signOutDefaulters.txt
@@ -41,9 +42,7 @@ for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'; do
     sudo setfacl -m "u:HAD:rwx" /home/$i/signOutRequests.txt
     sudo setfacl -m "u:HAD:rwx" /home/$i
 
-    sudo setfacl -m "g:$i:r-x" /home/$i/signOutDefaulters.txt
 
-    sudo chmod 750 /home/$i
     sudo usermod -a -G $i HAD
 
 done
