@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+exec 4<&0
+
 # Imports required functions from the function.sh file
 source /home/Delta_SusAd_Task1/SuperUser\ Mode/functions.sh
 
@@ -59,12 +62,13 @@ if [ "$checker" = "student" ]; then
 ################################## HAD SCRIPT ###############################################
 
 elif [ "$checker" = "Warden" ];then
+    
     while read name room rollno date;do
         printf "$name\t$rollno\t$date"
         echo "\n"
         echo Would you like to approve this particular signout request?[y/n]
         echo "\n"
-        read approval
+        read approval <&4
         if [ "$approval" = "y" ];then
             echo "$name $rollno $date" >> "/home/$user/signOutHistory.txt"
             echo "$date approved" >> "/home/$user/$room/$name/signOutApproval.txt"
