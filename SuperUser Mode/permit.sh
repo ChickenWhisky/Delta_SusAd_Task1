@@ -43,6 +43,10 @@ for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'; do
     sudo setfacl -m "u:HAD:rwx" /home/$i/signOutRequests.txt
     sudo setfacl -m "u:HAD:rwx" /home/$i
 
+    sudo setfacl -m "u:$i:rwx" /home/$i/signOutRequests.txt
+    sudo setfacl -m "u:$i:rwx" /home/$i/signOutHistory.txt
+
+
 
     sudo usermod -a -G $i HAD
 

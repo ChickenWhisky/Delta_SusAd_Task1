@@ -21,7 +21,7 @@ if [ "$user" = "HAD" ]; then
 
         # Check if the cummulativeAmmountPaid is equal to 100000
         if [ $num -eq 100000 ] && [ $comparableTransaction -le $endOfSemEpoch ] && [ $countTo5 -lt 5 ]; then
-            echo "$name" | tee -a /home/$hostel/announcements.txt
+            echo "$name" | tee -a /home/$hostel/announcements.txt > /dev/null
             if [ "$previousHostel" = "$hostel" ]; then
                 countTo5=$(($countTo5 + 1))
             else
@@ -30,7 +30,7 @@ if [ "$user" = "HAD" ]; then
 
             previousHostel=$hostel
         else
-            echo "$name" | tee -a /home/$hostel/feeDefaulters.txt
+            echo "$name" | tee -a /home/$hostel/feeDefaulters.txt > /dev/null
 
         fi
     done </home/Delta_SusAd_Task1/SuperUser\ Mode/src/studentDetails.txt
