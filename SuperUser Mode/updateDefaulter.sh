@@ -16,7 +16,7 @@ if [ "$user" = "HAD" ]; then
         comparableTransaction=$(echo "$lastTransaction" | awk '{print $NF}')
 
         #Sets epoch time for end of sem
-        endOfSem="2022-06-10 00:00:00"
+        endOfSem="2023-06-10 00:00:00"
         endOfSemEpoch=$(date --date="$endOfSem" +"%s")
 
         # Check if the cummulativeAmmountPaid is equal to 100000
