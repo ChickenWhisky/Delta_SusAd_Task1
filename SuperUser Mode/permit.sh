@@ -35,7 +35,7 @@ for i in 'GarnetA' 'GarnetB' 'Opal' 'Agate'; do
     sudo setfacl -m "g:$i:r-x" /home/$i/signOutDefaulters.txt
     sudo setfacl -m "g:$i:r-x" /home/$i/feeDefaulters.txt
     sudo setfacl -m "g:$i:-w-" /home/$i/signOutRequests.txt
-    sudo setfacl -m "g:$i:r-x" /home/$hostel/signOut.sh
+    sudo setfacl -m "u:$i:r-x" /home/$hostel/signOut.sh
 
 
     sudo setfacl -m "u:HAD:rwx" /home/$i/signOutDefaulters.txt
