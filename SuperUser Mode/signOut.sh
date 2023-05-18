@@ -53,7 +53,6 @@ if [ "$checker" = "student" ]; then
     done
 
     echo "$name $room $rollno $returnDate" >> "/home/$hostel/signOutRequests.txt"
-    echo "$returnDate -" >> "/home/$hostel/signOutRequests.txt"
 
 
 
