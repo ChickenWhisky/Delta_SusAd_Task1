@@ -144,5 +144,7 @@ elif [ "$checker" = "HAD" ]; then
             capcityarray[$((${prefarray[2]} - 1))]=$((${capcityarray[$((${prefarray[2]} - 1))]} - 1))
         fi
     done
-
+    sed -i "2s/[^[:space:]]\+/${capcityarray[0]}/2" "/home/HAD/mess.txt"
+    sed -i "3s/[^[:space:]]\+/${capcityarray[1]}/2" "/home/HAD/mess.txt"
+    sed -i "4s/[^[:space:]]\+/${capcityarray[2]}/2" "/home/HAD/mess.txt"
 fi
