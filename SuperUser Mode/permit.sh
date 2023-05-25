@@ -14,7 +14,7 @@ while read name rollno hostel room mess messpref; do
         sudo usermod -a -G HAD $name
         sudo usermod -a -G $name $hostel
         sudo usermod -a -G $name HAD
-        sudo chmod g=rwx /home/$hostel/$room/$name
+        sudo setfacl -m "g:$name:rwx" /home/$hostel/$room/$name
         sudo setfacl -m "g:$name:rwx" /home/$hostel/$room/$name/userDetails.txt
         sudo setfacl -m "g:$name:rwx" /home/$hostel/$room/$name/fees.txt
         sudo setfacl -m "g:$name:r-x" /home/$hostel/$room/$name/messAllocation.sh

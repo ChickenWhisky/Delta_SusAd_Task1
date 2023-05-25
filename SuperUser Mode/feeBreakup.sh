@@ -19,7 +19,7 @@ while read Name rollno Hostel Room mess messpref; do
         room=$Room
         name=$Name
     fi
-done </home/Delta_SusAd_Task1/NormalUser\ Mode/src/studentDetails.txt
+done </home/Delta_SusAd_Task1/SuperUser\ Mode/src/studentDetails.txt
 
 # Calculates amount to be added to cummulativeAmountPaid based on given percentages from feeBreakup.txt
 case $input in
