@@ -3,29 +3,13 @@
 Hello and welcome to my Delta Inductions Task 1 for the Sysad domain.
 To begin open up the terminal and enter the following commands
 
-## On Starting the server
+## On cloning the repository
 
-* Open the terminal and enter the following block of code
-```
-sudo apt update
-sudo apt -y upgrade
-sudo apt install sudo acl wget git
-sudo apt-get install at
+* Execute the following and read the instructions
 
 ```
-* If the user HAD hasnt been created then do the following
+cd ./SuperUser\ Mode
 ```
-sudo useradd -m -d /home/HAD HAD
-cd /home/HAD
-```
-
-* Sign in to User HAD & execute the following on the terminal 
-
-```
-cd /home
-git clone https://github.com/ChickenWhisky/Delta_SusAd_Task1.git
-```
-
 ### Extra files for the sake of testing above scripts
 * putongit.sh is a simple script that simplifies the process of pushing commits to github
 * reset.sh is a script written to delete all users & directories created by genStudent.sh
