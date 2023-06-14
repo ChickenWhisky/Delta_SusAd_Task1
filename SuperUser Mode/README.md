@@ -1,8 +1,12 @@
 # SuperUser Mode
 
+In order to run this in a container open the terminal in the required directory and then build the container image
 
-
-
+```bash
+docker build -t task2 .
+# Exposing the container port 8080
+docker run -i -p 8080:8080 task2
+```
 
 ### 
 - [X] Create the script such that a student and a warden should be able to run it
